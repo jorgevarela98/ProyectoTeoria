@@ -1,0 +1,192 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Simulador | Crecimiento poblacional</title>
+        <link href="img/logo.png" rel="icon">
+        <script src="https://kit.fontawesome.com/552ebddad2.js" crossorigin="anonymous"></script>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&family=Rubik&display=swap" rel="stylesheet">
+        <!-- Bootstrap -->
+        <link rel="stylesheet" type="text/css" media="screen" href="css/bootstrap.min.css" />
+        <!-- Custom styles -->
+        <link rel="stylesheet" type="text/css" media="screen" href="css/css/global.css" />
+
+    </head>
+
+    <body class="main"></body>
+
+        <div class="main__content">
+
+            <header class="header mt-2">
+                <h4><span class="mr-3"><img src="img/logo.png" alt=""></span>Simulador de crecimiento poblacional</h4>
+            </header>
+            
+            <div class="section" id="grafics">
+                <div class="row">
+                    <div class="col-6 pb-4 mt-4" style="height: min-content; align-items: center;">
+                        <div class="section_2_2 card__graphic2__container">
+                            <div class="card__ card__graphic card_graphic2" style="height: 370px; width: 100%; ">
+                                <div class="card__header">
+                                    <label>Crecimiento poblacional a través del tiempo</label>
+                                </div>
+                                <div class="card__body ">
+                                    <div id="chartdiv"></div>
+                                </div>
+                            </div>
+                        </div>        
+                    </div>
+                
+                
+                    <div class="col-6 pb-4 mt-4" style="height: min-content;">
+                        <div class="section_2_2 card__graphic2__container">
+                            <div class="card__ card__graphic card_graphic2" style="height: 370px; width: 100%;">
+                                <div class="card__header">
+                                    <label>Tasa de suicidios y muertes violentas a través del tiempo</label>
+                                </div>
+                                <div class="card__body ">
+                                    <div id="chartdiv2"></div>
+                                </div>
+                            </div>
+                        </div>                
+                    </div> 
+                </div>
+            </div>
+    
+            <div class="section">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card" style="border-radius: 7px; background-color: #FFFFFF; border-style: solid; border-width: 2.0px; border-color: rgba(0, 0, 0, 0.046);">
+                            <div class="card-body" style="border-radius: 10px;">
+                               <div class="row">
+                                    <div class="col-2">
+                                        <div class="card1__container">
+                                <div class="card1 card__ card1__red">
+                                    <div class="card1__section1">
+                                        <label for="txt-pi">Población inicial</label>
+                                        <input type="number" class="form-control rounded-0" id="txt-pi" required="" min="0">
+                                        <span class="invalid-feedback">Dato inválido</span>
+                                    </div>                            
+                                </div>
+                            </div> 
+                                    </div>
+                                    <div class="col-2">
+                                        <div class="card1__container">
+                                        <div class="card1 card__ card1__green">
+                                            <div class="card1__section1">
+                                                <label for="txt-tn">Tasa Natalidad</label>
+                                                <input type="number" class="form-control rounded-0" id="txt-tn" required="" min="0">
+                                                <span class="invalid-feedback">Dato inválido</span>
+                                            </div>                           
+                                        </div>
+                                    </div>
+                                </div>
+                                    <div class="col-2">
+                                        <div class="card1__container">
+                                        <div class="card1 card__ card1__rose">
+                                            <div class="card1__section1">
+                                                <label for="txt-an">Años a Proyectar</label>
+                                                <input type="number" class="form-control rounded-0" id="txt-an" required="" min="0">
+                                                <span class="invalid-feedback">Dato inválido</span>
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                                    <div class="col-2">
+                                        <div class="card1__container">
+                                        <div class="card1 card__ card1__blue">
+                                            <div class="card1__section1">
+                                                <label for="txt-tm">Tasa Mortalidad</label>
+                                                <input type="number" class="form-control rounded-0" id="txt-tm" required="" min="0">
+                                                <span class="invalid-feedback">Dato inválido</span>
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                                    <div class="col-2">
+                                        <div class="card1__container">
+                                        <div class="card1 card__ card1__yellow">
+                                            <div class="card1__section1">
+                                                <label for="txt-mh">Suicidios</label>
+                                                <input type="number" class="form-control rounded-0" id="txt-mh" required="" min="0">
+                                                <span class="invalid-feedback">Dato inválido</span>
+                                            </div>                            
+                                        </div>
+                                    </div>
+                                </div>
+                                    <div class="col-2">
+                                        <div class="card1__container">
+                                            <div class="card1 card__ card1__green">
+                                                <div class="card1__section1">
+                                                    <label for="txt-ma">Muertes violentas</label>
+                                                    <input type="number" class="form-control rounded-0" id="txt-ma" required="" min="0">
+                                                    <span class="invalid-feedback">Dato inválido</span>
+                                                </div>
+                                            </div>
+                                        </div> 
+                                    </div>
+                               </div>
+                               <hr>
+                               <div class="row text-center">
+                                    <div class="col">
+                                        <button class="button__main button__green button-save"  onclick="ventanaModal('guardar',{
+                                            title: 'Guardar Simulación',
+                                            width: 600,
+                                            height: 24,
+                                            content: '',
+                                            action:3});">
+                                            Guardar
+                                        </button>
+                                    </div>
+                                    <div class="col">
+                                        <button class="button__main button__blue--dark button-save" onclick="ventanaModal('ayuda',{
+                                            title: 'Modelo de crecimiento poblacional',
+                                            width: 600,
+                                            height: 35,
+                                            content: '',
+                                            action:1});"
+                                            >Ayuda
+                                        </button> 
+                                    </div>
+                                    <div class="col">
+                                        <button class="button__main button__green" onclick="calcularCP({flag:false,id:''})">Iniciar</button>
+                                    </div>
+                                    <div class="col">
+                                        <button class="button__main button__rose" onclick="restablecer()">Restablecer</button>
+                                    </div>
+                                    <div class="col">
+                                        <button class="button__main button__blue button-save"  onclick="ventanaModal('historial',{
+                                            title: 'Historial',
+                                            width: 800,
+                                            height: 80,
+                                            content: '',
+                                            action:2});"
+                                            >Historial
+                                        </button>
+                                    </div>
+                               </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        <script src="js/jquery-3.4.1.min.js"></script>
+        <script src="js/popper.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <!-- amCharts -->
+        <script src="https://cdn.amcharts.com/lib/4/core.js"></script>
+        <script src="https://cdn.amcharts.com/lib/4/charts.js"></script>
+        <script src="https://cdn.amcharts.com/lib/4/themes/material.js"></script>
+        <script src="https://cdn.amcharts.com/lib/4/themes/moonrisekingdom.js"></script>
+        <script src="https://cdn.amcharts.com/lib/4/themes/animated.js"></script>
+        <script src="https://cdn.amcharts.com/lib/4/themes/dataviz.js"></script>
+        <!-- Custom Javascript -->
+        <script src="js/charts3.js"></script>
+        <script src="js/charts.js"></script>
+        <script src="js/main.js"></script>
+    </body>
+</html>
