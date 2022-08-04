@@ -14,10 +14,11 @@
 **********************/
 /* mixin */
 /*  General class */
+/*#0bffd660;*/
 .main {
   width: 100%;
   height: 100%;
-  background-color: #f3f7fd;
+  background-color: #66ff0057; 
   margin: 0;
 }
 
@@ -162,29 +163,7 @@
   color: #8fa2c3;
 }
 
-.card1__green {
-  border-left: 4px solid #68e2c7;
-}
 
-.card1__rose {
-  border-left: 4px solid #fdb3a8;
-}
-
-.card1__blue {
-  border-left: 4px solid #1064e9;
-}
-
-.card1__yellow {
-  border-left: 4px solid #f5ae39;
-}
-
-.card1__red {
-  border-left: 4px solid #c21313;
-}
-
-.card1__violet {
-  border-left: 4px solid #b21eec;
-}
 
 .card2 {
   padding: 16px;
@@ -242,40 +221,25 @@
   box-shadow: 2px 2px 6px 0 rgba(0, 0, 0, 0.1);
 }
 
-.button__green {
-  background-color: #68e2c7;
+.button__red {
+  background-color: #7bbcbd;
 }
 
-.button__green:hover {
-  background-color: #29d6b1;
+.button__redn:hover {
+  background-color: #ff0040;
 }
 
-.button__green:active {
+.button__red:active {
   background-color: #25c19f;
   border-color: #25c19f;
 }
 
-.button__green:focus {
+.button__red:focus {
   box-shadow: 0 0 0 0.2rem rgba(104, 226, 199, 0.5) !important;
   outline: 0;
 }
 
-.button__rose {
-  background-color: #fdb3a8;
-}
 
-.button__rose:hover {
-  background-color: #fda496;
-}
-
-.button__rose:active {
-  background-color: #fc9282;
-  border-color: #fc9282;
-}
-.button__rose:focus {
-  box-shadow: 0 0 0 0.2rem rgba(253, 179, 168, 0.5) !important;
-  outline: 0;
-}
 
 .card__graphic {
   padding: 16px;

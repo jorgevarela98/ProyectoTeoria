@@ -20,7 +20,7 @@
         <div class="main__content">
 
             <header class="header mt-2">
-                <h4><span class="mr-3"><img src="img/logo.png" alt=""></span>Simulador de crecimiento poblacional</h4>
+                <h4><span class="mr-3"><img src="img/logo.png" alt=""></span>Teoría de la Simulación Ejercicio 1: Simulador de Crecimiento Poblacional </h4>
             </header>
             
             <div class="section" id="grafics">
@@ -62,7 +62,7 @@
                                <div class="row">
                                     <div class="col-2">
                                         <div class="card1__container">
-                                <div class="card1 card__ card1__red">
+                                <div class="card1 card__ ">
                                     <div class="card1__section1">
                                         <label for="txt-pi">Población inicial</label>
                                         <input type="number" class="form-control rounded-0" id="txt-pi" required="" min="0">
@@ -73,7 +73,7 @@
                                     </div>
                                     <div class="col-2">
                                         <div class="card1__container">
-                                        <div class="card1 card__ card1__green">
+                                        <div class="card1 card__ ">
                                             <div class="card1__section1">
                                                 <label for="txt-tn">Tasa Natalidad</label>
                                                 <input type="number" class="form-control rounded-0" id="txt-tn" required="" min="0">
@@ -84,7 +84,7 @@
                                 </div>
                                     <div class="col-2">
                                         <div class="card1__container">
-                                        <div class="card1 card__ card1__rose">
+                                        <div class="card1 card__ ">
                                             <div class="card1__section1">
                                                 <label for="txt-an">Años a Proyectar</label>
                                                 <input type="number" class="form-control rounded-0" id="txt-an" required="" min="0">
@@ -96,7 +96,7 @@
                                 </div>
                                     <div class="col-2">
                                         <div class="card1__container">
-                                        <div class="card1 card__ card1__blue">
+                                        <div class="card1 card__ ">
                                             <div class="card1__section1">
                                                 <label for="txt-tm">Tasa Mortalidad</label>
                                                 <input type="number" class="form-control rounded-0" id="txt-tm" required="" min="0">
@@ -108,7 +108,7 @@
                                 </div>
                                     <div class="col-2">
                                         <div class="card1__container">
-                                        <div class="card1 card__ card1__yellow">
+                                        <div class="card1 card__ ">
                                             <div class="card1__section1">
                                                 <label for="txt-mh">Suicidios</label>
                                                 <input type="number" class="form-control rounded-0" id="txt-mh" required="" min="0">
@@ -119,7 +119,7 @@
                                 </div>
                                     <div class="col-2">
                                         <div class="card1__container">
-                                            <div class="card1 card__ card1__green">
+                                            <div class="card1 card__ ">
                                                 <div class="card1__section1">
                                                     <label for="txt-ma">Muertes violentas</label>
                                                     <input type="number" class="form-control rounded-0" id="txt-ma" required="" min="0">
@@ -132,7 +132,7 @@
                                <hr>
                                <div class="row text-center">
                                     <div class="col">
-                                        <button class="button__main button__green button-save"  onclick="ventanaModal('guardar',{
+                                        <button class="button__main button__red button-save"  onclick="ventanaModal('guardar',{
                                             title: 'Guardar Simulación',
                                             width: 600,
                                             height: 24,
@@ -142,23 +142,13 @@
                                         </button>
                                     </div>
                                     <div class="col">
-                                        <button class="button__main button__blue--dark button-save" onclick="ventanaModal('ayuda',{
-                                            title: 'Modelo de crecimiento poblacional',
-                                            width: 600,
-                                            height: 35,
-                                            content: '',
-                                            action:1});"
-                                            >Ayuda
-                                        </button> 
+                                        <button class="button__main button__red" onclick="calcularCP({flag:false,id:''})">Iniciar</button>
                                     </div>
                                     <div class="col">
-                                        <button class="button__main button__green" onclick="calcularCP({flag:false,id:''})">Iniciar</button>
+                                        <button class="button__main button__red" onclick="restablecer()">Restablecer</button>
                                     </div>
                                     <div class="col">
-                                        <button class="button__main button__rose" onclick="restablecer()">Restablecer</button>
-                                    </div>
-                                    <div class="col">
-                                        <button class="button__main button__blue button-save"  onclick="ventanaModal('historial',{
+                                        <button class="button__main button__red button-save"  onclick="ventanaModal('historial',{
                                             title: 'Historial',
                                             width: 800,
                                             height: 80,
@@ -173,7 +163,54 @@
                     </div>
                 </div>
             </div>
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <p class="text_info ">
+                        En el siguiente modelo, se proyecta la cantidad de habitantes con base al crecimiento  de la población, utilizando un algoritmo con recursividad que va a permitir  la proyección en años en base al resultado del crecimiento del año anterior y siguiendo la misma tasa de natalidad, mortalidad.
+                        </p>
+                        <p>
+                </div>
+                <div class="row">
+                    <strong>Formula del Modelo</strong>
+                    <br>
+                    
+                    
+                    <img class="img_model" src="img/modelo 1.jpeg">  </p> 
+                </div>
+                
+                <div class="row">
+                    <p class="text_info mt-5">
+                        Con las siguientes formulas, se calculara la tasa de muertes violentas por homicidio y por suicidios por cada 1,000 habitantes de una cuidad X, haciendo referencia al crecimiento de la poblacion antes proyectado. 
+                        </p>
+                        
+                </div>
+                <div class="row">
+                    <strong>Formulas:</strong>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="row">
+                            <p>
+                                <img class="img_model2" src="img/formula 2_1.jpeg">  </p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="row">
+                            <p>
+                                <img class="img_model2" src="img/formula 2_2.jpeg">  </p>
+                        </div>
+                    </div>
+                </div>
+                
 
+            </div>
+            
+            
+                
+            
+                
+        </footer>
         <script src="js/jquery-3.4.1.min.js"></script>
         <script src="js/popper.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
