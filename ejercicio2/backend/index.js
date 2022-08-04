@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const cors = require('cors')
+const carrosRouter = require('./routers/carros.router')
 require('dotenv').config()
 
 /**
@@ -12,7 +13,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(cors());
 
-
+app.use('/carros', carrosRouter.router)
 
 app.get('/', (req,res)=>{
     res.send('Los meros Sevillistas');
