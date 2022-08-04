@@ -1,50 +1,38 @@
-create table marca 
-(marcaID number GENERATED ALWAYS AS IDENTITY ,
-nombre varchar (30)
+CREATE TABLE MARCA (
+    marca_id INTEGER IDENTITY(1,1) PRIMARY KEY,
+    nombre VARCHAR (30) NOT NULL    
+);
 
-)
+CREATE TABLE MODELO(
+    modelo_id INTEGER IDENTITY(1,1) PRIMARY KEY,
+    nombre_modelo VARCHAR(30) NOT NULL,
+    marca_id INTEGER,
+    motor VARCHAR(30) NOT NULL,
+    consumo_medio FLOAT,
+    tipo_combustible VARCHAR(10),
+    anio INTEGER NOT NULL,
+    transmision VARCHAR(20),
+    pais VARCHAR(20) NOT NULL,
 
-Alter table marca ADD CONSTRAINT pk_marca PRIMARY KEY (marcaID);
-create table modelo
-(
-modeloID number GENERATED ALWAYS as IDENTITY,
-nombre varchar(30),
-marcaID number,
-motor varchar(10),
-consumoMedio number,
-tipoCombustible varchar(10),
-constraint pk_modelo primary key(modeloID),
-FOREIGN key (marcaID) references marca(marcaID)
-)
-alter table modelo add anio number;
-alter table modelo add transmision varchar(20);
-alter table marca add pais varchar(20);
 
-insert INTO marca (nombre)
-values ('toyota');
-insert INTO marca (nombre)
-values ('Honda');
-insert INTO marca (nombre)
-values ('ford');
-insert INTO marca (nombre)
-values ('Nissan');
-insert INTO marca (nombre)
-values ('Kia');
-insert INTO marca (nombre)
-values ('wolkswagen');
-insert INTO marca (nombre)
-values ('hyundai');
-insert INTO marca (nombre)
-values ('bmw');
-insert INTO marca (nombre)
-values ('volvo');
-insert INTO marca (nombre)
-values ('chevrolet');
-insert INTO marca (nombre)
-values ('dodge');
+    CONSTRAINT fk_marca_id_modelo FOREIGN KEY (marca_id) REFERENCES MARCA(marca_id)
+);
 
-select * from marca;
-select * from modelo;
+
+INSERT INTO MARCA(nombre) VALUES ('Toyota');
+INSERT INTO MARCA(nombre) VALUES ('Honda');
+INSERT INTO MARCA(nombre) VALUES ('Ford');
+INSERT INTO MARCA(nombre) VALUES ('Nissan');
+INSERT INTO MARCA(nombre) VALUES ('Kia');
+INSERT INTO MARCA(nombre) VALUES ('Wolkswagen');
+INSERT INTO MARCA(nombre) VALUES ('Hyundai');
+INSERT INTO MARCA(nombre) VALUES ('BMW');
+INSERT INTO MARCA(nombre) VALUES ('Volvo');
+INSERT INTO MARCA(nombre) VALUES ('Chevrolet');
+INSERT INTO MARCA(nombre) VALUES ('Dodge');
+
+SELECT * FROM MARCA;
+
 
 update marca 
  set pais='japon' where marcaid=1 or marcaid=2 or marcaid=4 ;
@@ -57,71 +45,47 @@ update marca
  update marca 
  set pais='suecia' where marcaid=9 ;
 
-/*Chevrolet*/
-insert into modelo(nombre,marcaID,motor,consumoMedio,tipoCombustible,anio,transmision)
-values('spark',10,'1400',18.22,'gasolina',2020,'manual');
-insert into modelo(nombre,marcaID,motor,consumoMedio,tipoCombustible,anio,transmision)
-values('spark F',10,'1400',18.23,'gasolina',2020,'cvt');
-insert into modelo(nombre,marcaID,motor,consumoMedio,tipoCombustible,anio,transmision)
-values('spark E',10,'1400',18.22,'gasolina',2018,'cvt');
-insert into modelo(nombre,marcaID,motor,consumoMedio,tipoCombustible,anio,transmision)
-values('aveo B',10,'1500',16.62,'gasolina',2020,'automatica');
-insert into modelo(nombre,marcaID,motor,consumoMedio,tipoCombustible,anio,transmision)
-values('aveo',10,'1500',17.38,'gasolina',2020,'cvt');
-insert into modelo(nombre,marcaID,motor,consumoMedio,tipoCombustible,anio,transmision)
-values('aveo E',10,'1500',17.38,'gasolina',2019,'mecanica');
+
+/*CHEVROLET*/
+INSERT INTO MODELO(nombre_modelo, marca_id, motor, consumo_medio, tipo_combustible, anio, transmision,pais) VALUES('Spark',10,'1400',18.22,'Gasolina',2020,'Manual','USA');
+INSERT INTO MODELO(nombre_modelo, marca_id, motor, consumo_medio, tipo_combustible, anio, transmision,pais) VALUES('Spark F',10,'1400',18.67,'Gasolina',2020,'CVT','USA');
+INSERT INTO MODELO(nombre_modelo, marca_id, motor, consumo_medio, tipo_combustible, anio, transmision,pais) VALUES('Spark e',10,'1400',18.22,'Gasolina',2020,'CVT','USA');
+INSERT INTO MODELO(nombre_modelo, marca_id, motor, consumo_medio, tipo_combustible, anio, transmision,pais) VALUES('Aveo B',10,'1500',16.62,'Gasolina',2020,'Automatica','USA');
+INSERT INTO MODELO(nombre_modelo, marca_id, motor, consumo_medio, tipo_combustible, anio, transmision,pais) VALUES('Aveo',10,'1500',17.33,'Gasolina',2020,'CVT','USA');
+INSERT INTO MODELO(nombre_modelo, marca_id, motor, consumo_medio, tipo_combustible, anio, transmision,pais) VALUES('Aveo E',10,'1500',20.22,'Gasolina',2020,'Manual','USA');
+
 
 /*Dodge*/
-insert into modelo(nombre,marcaID,motor,consumoMedio,tipoCombustible,anio,transmision)
-values('neon SE',11,'1400',14.42,'gasolina',2020,'automatica');
-insert into modelo(nombre,marcaID,motor,consumoMedio,tipoCombustible,anio,transmision)
-values('neon Sport',11,'1600',14.26,'gasolina',2020,'mecanica');
-insert into modelo(nombre,marcaID,motor,consumoMedio,tipoCombustible,anio,transmision)
-values('charger',11,'3600',9.11,'gasolina',2020,'automatica');
+INSERT INTO MODELO(nombre_modelo, marca_id, motor, consumo_medio, tipo_combustible, anio, transmision,pais) VALUES('neon SE',11,'1400',14.42,'Gasolina',2020,'Automatico','USA');
+INSERT INTO MODELO(nombre_modelo, marca_id, motor, consumo_medio, tipo_combustible, anio, transmision,pais) VALUES('neon Sport',11,'1600',14.00,'Gasolina',2020,'Manual','USA');
+INSERT INTO MODELO(nombre_modelo, marca_id, motor, consumo_medio, tipo_combustible, anio, transmision,pais) VALUES('Charger',11,'3600',9.42,'Gasolina',2020,'Automatico','USA');
 
-/*ford*/
-insert into modelo(nombre,marcaID,motor,consumoMedio,tipoCombustible,anio,transmision)
-values('focus SE',3,'2000',6.7,'gasolina',2018,'mecanica');
-insert into modelo(nombre,marcaID,motor,consumoMedio,tipoCombustible,anio,transmision)
-values('focus 1.0 ecobost',3,'1000',20,'gasolina',2018,'automatico');
-insert into modelo(nombre,marcaID,motor,consumoMedio,tipoCombustible,anio,transmision)
-values('Escape SE',3,'2000',9.4,'gasolina',2018,'automatica');
-insert into modelo(nombre,marcaID,motor,consumoMedio,tipoCombustible,anio,transmision)
-values('Escape',3,'2500',8.92,'gasolina',2010,'automatica');
+/*Ford*/
+INSERT INTO MODELO(nombre_modelo, marca_id, motor, consumo_medio, tipo_combustible, anio, transmision,pais) VALUES('Focus SE',3,'2000',6.42,'Gasolina',2013,'Manual','USA');
+INSERT INTO MODELO(nombre_modelo, marca_id, motor, consumo_medio, tipo_combustible, anio, transmision,pais) VALUES('Focus Eco Boost',3,'1000',10,'Gasolina',2016,'Automatico','USA');
+INSERT INTO MODELO(nombre_modelo, marca_id, motor, consumo_medio, tipo_combustible, anio, transmision,pais) VALUES('Escape',3,'1900',10.42,'Gasolina',2019,'Automatico','USA');
+INSERT INTO MODELO(nombre_modelo, marca_id, motor, consumo_medio, tipo_combustible, anio, transmision,pais) VALUES('Edge',3,'2400',12.42,'Gasolina',2018,'Automatico','USA');
 
-/*honda*/
-insert into modelo(nombre,marcaID,motor,consumoMedio,tipoCombustible,anio,transmision)
-values('crv ex',2,'2400',13.9,'gasolina',2019,'cvt');
-insert into modelo(nombre,marcaID,motor,consumoMedio,tipoCombustible,anio,transmision)
-values('crv touring',2,'1500',15.2,'gasolina',2020,'cvt');
-insert into modelo(nombre,marcaID,motor,consumoMedio,tipoCombustible,anio,transmision)
-values('crv turbo',2,'1500',15.2,'gasolina',2020,'cvt');
-insert into modelo(nombre,marcaID,motor,consumoMedio,tipoCombustible,anio,transmision)
-values('civic ex',2,'1700',14.4,'gasolina',2019,'automatica');
-insert into modelo(nombre,marcaID,motor,consumoMedio,tipoCombustible,anio,transmision)
-values('civic type-r',2,'1700',11.6,'gasolina',2020,'mecanica');
-insert into modelo(nombre,marcaID,motor,consumoMedio,tipoCombustible,anio,transmision)
-values('civic touring',2,'1700',17.4,'gasolina',2019,'automatica');
-insert into modelo(nombre,marcaID,motor,consumoMedio,tipoCombustible,anio,transmision)
-values('civic s',2,'2000',16.6,'gasolina',2019,'mecanica');
+/*Honda*/
+INSERT INTO MODELO(nombre_modelo, marca_id, motor, consumo_medio, tipo_combustible, anio, transmision,pais) VALUES('CRV EX',2,'2400',13.90,'Gasolina',2020,'Automatico','Japon');
+INSERT INTO MODELO(nombre_modelo, marca_id, motor, consumo_medio, tipo_combustible, anio, transmision,pais) VALUES('CRV',2,'1500',15.2,'Gasolina',2020,'Manual','Japon');
+INSERT INTO MODELO(nombre_modelo, marca_id, motor, consumo_medio, tipo_combustible, anio, transmision,pais) VALUES('CRV TURBO',2,'2600',19.42,'Gasolina',2020,'Automatico','Japon');
+INSERT INTO MODELO(nombre_modelo, marca_id, motor, consumo_medio, tipo_combustible, anio, transmision,pais) VALUES('S2000',2,'3300',20.42,'Gasolina',2000,'Manual','Japon');
+INSERT INTO MODELO(nombre_modelo, marca_id, motor, consumo_medio, tipo_combustible, anio, transmision,pais) VALUES('NSX',2,'3400',22.12,'Gasolina',1994,'Manual','Japon');
+INSERT INTO MODELO(nombre_modelo, marca_id, motor, consumo_medio, tipo_combustible, anio, transmision,pais) VALUES('Civic R-Type',2,'1600',9.42,'Gasolina',2020,'Manual','Japon');
+INSERT INTO MODELO(nombre_modelo, marca_id, motor, consumo_medio, tipo_combustible, anio, transmision,pais) VALUES('Accord',2,'1200',9.42,'Gasolina',2005,'Automatico','Japon');
+
 
 /*Hyundai*/
-insert into modelo(nombre,marcaID,motor,consumoMedio,tipoCombustible,anio,transmision)
-values('elantra gls',7,'2000',17.2,'gasolina',2020,'cvt');
-insert into modelo(nombre,marcaID,motor,consumoMedio,tipoCombustible,anio,transmision)
-values(' elantra gls tm',7,'2000',15.65,'gasolina',2019,'mecanica');
-insert into modelo(nombre,marcaID,motor,consumoMedio,tipoCombustible,anio,transmision)
-values('tucson gls',7,'2000',12.45,'gasolina',2020,'automatica');
-insert into modelo(nombre,marcaID,motor,consumoMedio,tipoCombustible,anio,transmision)
-values(' tucson gls premium',7,'2000',12.45,'gasolina',2020,'automatica');
-insert into modelo(nombre,marcaID,motor,consumoMedio,tipoCombustible,anio,transmision)
-values('santa fe',7,'2000',10.8,'gasolina',2019,'automatica');
-insert into modelo(nombre,marcaID,motor,consumoMedio,tipoCombustible,anio,transmision)
-values('santa fe limited',7,'2000',10.8,'gasolina',2020,'automatica');
-insert into modelo(nombre,marcaID,motor,consumoMedio,tipoCombustible,anio,transmision)
-values('i10',7,'1300',18,'gasolina',2019,'automatica');
-insert into modelo(nombre,marcaID,motor,consumoMedio,tipoCombustible,anio,transmision)
-values('i10 GL',7,'1300',16.7,'gasolina',2020,'automatica');
+
+INSERT INTO MODELO(nombre_modelo, marca_id, motor, consumo_medio, tipo_combustible, anio, transmision,pais) VALUES('Elantra',7,'2000',17.2,'Gasolina',2020,'Automatico','Korea');
+INSERT INTO MODELO(nombre_modelo, marca_id, motor, consumo_medio, tipo_combustible, anio, transmision,pais) VALUES('Elantra GLS',7,'2500',15.65,'Gasolina',2020,'Manual','Korea');
+INSERT INTO MODELO(nombre_modelo, marca_id, motor, consumo_medio, tipo_combustible, anio, transmision,pais) VALUES('Tucson Turbo',7,'2800',12.45,'Gasolina',2020,'Automatico','Korea');
+INSERT INTO MODELO(nombre_modelo, marca_id, motor, consumo_medio, tipo_combustible, anio, transmision,pais) VALUES('Santa FE',7,'2200',10.8,'Diesel',2020,'Manual','Korea');
+INSERT INTO MODELO(nombre_modelo, marca_id, motor, consumo_medio, tipo_combustible, anio, transmision,pais) VALUES('Santa FE LIMITED',11.8,'2400',22.12,'Diesel',2009,'Manual','Korea');
+INSERT INTO MODELO(nombre_modelo, marca_id, motor, consumo_medio, tipo_combustible, anio, transmision,pais) VALUES('i10 GL',7,'1600',18,'Gasolina',2020,'Manual','Korea');
+INSERT INTO MODELO(nombre_modelo, marca_id, motor, consumo_medio, tipo_combustible, anio, transmision,pais) VALUES('Sonata',7,'1200',9.42,'Gasolina',2018,'Automatico','Korea');
+
 
 
 select * from marca join modelo on marca.marcaid=modelo.marcaid where pais='estados Unidos' order by modelo.consumomedio;
