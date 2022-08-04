@@ -4,9 +4,13 @@ const bodyParser = require('body-parser');
 const cors = require('cors')
 require('dotenv').config()
 
-app.use(cors({credentials: true, origin: '*'}));
-app.use(bodyParser.urlencoded({extended:true}));
+/**
+ * Middlewares
+ * 
+ */
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended:true}));
+app.use(cors());
 
 
 
