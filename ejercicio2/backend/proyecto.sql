@@ -24,7 +24,7 @@ INSERT INTO MARCA(nombre) VALUES ('Honda');
 INSERT INTO MARCA(nombre) VALUES ('Ford');
 INSERT INTO MARCA(nombre) VALUES ('Nissan');
 INSERT INTO MARCA(nombre) VALUES ('Kia');
-INSERT INTO MARCA(nombre) VALUES ('Wolkswagen');
+INSERT INTO MARCA(nombre) VALUES ('Volkswagen');
 INSERT INTO MARCA(nombre) VALUES ('Hyundai');
 INSERT INTO MARCA(nombre) VALUES ('BMW');
 INSERT INTO MARCA(nombre) VALUES ('Volvo');
