@@ -5,6 +5,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
     />
+    <link rel="stylesheet" href="./styles/style.css">
     <link rel="stylesheet" href="index.js" />
     <!-- CSS only -->
     <link
@@ -243,7 +244,57 @@
         </div>
       </div>
     </section>
+    <section>
+      <div class="container">
+        <div
+          class="row"
+          style="
+            text-align: left;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            margin-top: 5px;
+          "
+        >
+          <div class="col" style="text-align: center">
+            <button
+              class="btn btn-primary"
+              type="button"
+              style="height: 45px; width: 170px"
+              onclick="pararAnimacion()"
+            >
+              PAUSAR
+            </button>
+          </div>
+          <div class="col" style="text-align: center">
+            <button
+              class="btn btn-primary"
+              type="button"
+              style="height: 45px; width: 170px"
+              onclick="seguirAnimacion()"
+            >
+              REANUDAR
+            </button>
+          </div>
+        </div>
+      </div>
 
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col" style="text-align: center">
+            <div class="sky">
+              <div class="tree"></div>
+              <div class="trackstop" id="pista"></div>
+              <div class="carstop" id="carro"></div>
+              <div class=" wheelstop wheel1" id="llanta"></div>
+              <div class="wheelstop wheel2" id="llanta2"></div>
+            </div>
+          </div>
+          
+        </div>
+        
+      </div>
+    </section>
     <div
       class="modal"
       id="myModal"
@@ -363,5 +414,6 @@
         </div>
       </div>
     </div>
+    <script src="./js/script.js"></script>
   </body>
 </html>

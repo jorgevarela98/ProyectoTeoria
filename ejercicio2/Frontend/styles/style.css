@@ -7,30 +7,33 @@
 /*Sky Styling*/
 
 .sky{
-    width: 100vw;
+    width: 80vw;
     height: 100vh;
-    background-image: url(sky.jpeg);
+    background-image: url('../assets/sky.jpeg');
     background-repeat: no-repeat;
     background-size: cover;
-    position: absolute;
+    position: relative;
+    overflow-x: hidden;
 }
 .tree{
     height: 100vh;
-    background-image: url(tree-removebg-preview\ \(1\).png);
+    background-image: url('../assets/tree-removebg-preview\ \(1\).png');
     background-repeat:no-repeat;
     background-size: cover;
 }
 .track{
-    background-image: url(track.jpeg);
+    background-image: url('../assets/track.jpeg');
     background-repeat: repeat-x;
     position: absolute;
-    bottom: 0px;
-    width: 7000vw;
+    bottom: 0%;
+    width: 700%;
+    display: block;
+    left: 0%;
     height: 20vh;
     animation: trackanimation 6s linear infinite;
 }
 .car{
-    background-image: url(car-removebg-preview.png);
+    background-image: url('../assets/car-removebg-preview.png');
     background-repeat: no-repeat;
     background-size: cover;
     width: 17rem;
@@ -45,7 +48,7 @@
     animation: wheelanimation linear .6s infinite;
 }
 .wheel1{
-    background-image: url(wheel1-removebg-preview.png);
+    background-image: url('../assets/wheel1-removebg-preview.png');
     background-size: contain;
     background-repeat: no-repeat;
     width: 46px;
@@ -54,7 +57,7 @@
     left: 570px;
 }
 .wheel2{
-    background-image: url(wheel2-removebg-preview.png);
+    background-image: url('../assets/wheel2-removebg-preview.png');
     background-size: cover;
     background-repeat: no-repeat;
     width: 43px;
@@ -65,7 +68,7 @@
 
 /*Para Pausar animacion*/
 .carstop{
-    background-image: url(car-removebg-preview.png);
+    background-image: url('../assets/car-removebg-preview.png');
     background-repeat: no-repeat;
     background-size: cover;
     width: 17rem;
@@ -76,7 +79,7 @@
     animation: suspensionstop 1s linear infinite;
 }
 .trackstop{
-    background-image: url(track.jpeg);
+    background-image: url('../assets/track.jpeg');
     background-repeat: repeat-x;
     position: absolute;
     bottom: 0px;
