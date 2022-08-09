@@ -6,14 +6,26 @@
     <title>Lamborghini car animation</title>
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+   
 </head>
 <body>
+    <div>
+        <button onclick="pararAnimacion()">Parar</button>
+    </div>
+    <div>
+        <button onclick="seguirAnimacion()">Seguir</button>
+    </div>
     <div class="sky">
         <div class="tree"></div>
-        <div class="track"></div>
-        <div class="car"></div>
-        <div class=" wheel wheel1"></div>
-        <div class="wheel wheel2"></div>
+        <div class="track" id="pista"></div>
+        <div class="car" id="carro"></div>
+        <div class=" wheel wheel1" id="llanta"></div>
+        <div class="wheel wheel2" id="llanta2"></div>
     </div>
+
+
+   
+    
 </body>
 </html>

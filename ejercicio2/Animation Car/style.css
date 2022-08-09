@@ -25,7 +25,7 @@
     background-repeat: repeat-x;
     position: absolute;
     bottom: 0px;
-    width: 1000vw;
+    width: 7000vw;
     height: 20vh;
     animation: trackanimation 6s linear infinite;
 }
@@ -38,6 +38,7 @@
     position: absolute;
     bottom: 77px;
     left: 396px;
+    animation: suspension 1s linear infinite;
 }
 .wheel{
     position: absolute;
@@ -61,6 +62,37 @@
     bottom: 77px;
     left: 433px;
 }
+
+/*Para Pausar animacion*/
+.carstop{
+    background-image: url(car-removebg-preview.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 17rem;
+    height: 4.699rem;
+    position: absolute;
+    bottom: 77px;
+    left: 396px;
+    animation: suspensionstop 1s linear infinite;
+}
+.trackstop{
+    background-image: url(track.jpeg);
+    background-repeat: repeat-x;
+    position: absolute;
+    bottom: 0px;
+    width: 7000vw;
+    height: 20vh;
+    animation: wheelanimationstop 6s linear infinite;
+}
+
+.wheelstop{
+    position: absolute;
+    animation: wheelanimationstop linear .6s infinite;
+}
+
+ /*
+ Para la animaciones del carro
+ */
 @keyframes wheelanimation{
 
     100%{
@@ -73,3 +105,53 @@
         transform: translate(-500vw);
     }
 }
+
+
+@keyframes suspension{
+    100%{
+
+        transform: translateY(-2px)
+
+    }
+    50%{
+        transform: translateY(3px);
+    }
+    0%{
+        transform: translateY(-2px);
+    }
+}
+
+/*
+Animacion de parar
+*/
+
+
+@keyframes wheelanimationstop{
+
+    100%{
+        transform: rotate(0deg);
+    }
+}
+@keyframes trackanimationstop{
+     
+    100%{
+        transform: translate(0vw);
+    }
+}
+
+
+@keyframes suspensionstop{
+    100%{
+
+        transform: translateY(0px)
+
+    }
+    50%{
+        transform: translateY(0px);
+    }
+    0%{
+        transform: translateY(0px);
+    }
+}
+
+
