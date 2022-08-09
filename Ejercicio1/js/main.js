@@ -1,4 +1,4 @@
-﻿$(document).ready(()=>{
+$(document).ready(()=>{
     // Validar campos cuando su valor cambie, eventos keypress/change
     $('input').on('input', (e) => {
         validarCampoVacio(e.target.id);
@@ -72,13 +72,20 @@ function calcularCP(config) {
           crecimientoPoblacional: cp
         });
         // Calcular años subsiguientes y guardarlos en el arreglo
-        for (let i = 1; i <= indicadores.anios; i++) {
-          cp = parseFloat(( cp * (1+(indicadores.tasaNatalidad/1000)-(indicadores.tasaMortalidad/1000)) ).toFixed(0));
+
+for (let i = 1; i <= indicadores.anios; i++) {
+            nat = (indicadores.tasaNatalidad/100)
+            mort = (indicadores.tasaMortalidad/100)
+          cp = parseFloat(( cp * (1+(nat)-(mort)) ).toFixed(0));
           chartDatos.push({
             date: (new Date().getFullYear() + i).toString(),
             crecimientoPoblacional: cp
           });
         }
+
+
+
+      
         // Actualizar chartdiv
         console.log(chartDatos);
         chart.data = chartDatos;
@@ -88,24 +95,26 @@ function calcularCP(config) {
         
 
         let cp2 = indicadores.poblacionInicial;
-        let ma = indicadores.muertesAccidentales;
-        let mh = indicadores.homicidios;
+        let ma = (indicadores.muertesAccidentales/100);
+        let mh = indicadores.homicidios/100;
         let chartDatos2 = [];
         // Insertar caso base en el arreglo
         chartDatos2.push({
           date: (new Date().getFullYear()).toString(),
-          muerteAccidente: ma,
-          muertesHomicidios: mh
+          muerteAccidente: ma*cp2,
+          muertesHomicidios: mh*cp2
         });
         // Calcular años subsiguientes y guardarlos en el arreglo
         for (let i = 1; i <= indicadores.anios; i++) {
-          cp2 = parseFloat(( cp2 * (1+(indicadores.tasaNatalidad/1000)-(indicadores.tasaMortalidad/1000)) ).toFixed(0));
-          ma = parseFloat(((ma / cp2) * 1000).toFixed(0));
-          mh = parseFloat(((mh / cp2) * 1000).toFixed(0));
+           nat = (indicadores.tasaNatalidad/100);
+            mort = (indicadores.tasaMortalidad/100);
+          cp2 = parseFloat(( cp2 * (1+(nat)-(mort)) ).toFixed(0));
+	    b=cp2*ma;
+           c=cp2*mh;
           chartDatos2.push({
             date: (new Date().getFullYear() + i).toString(),
-            muerteAccidente: ma,
-            muertesHomicidios: mh
+            muerteAccidente: parseInt(b),
+            muertesHomicidios: parseInt(c)
           });
         }
         // Actualizar chartdiv
