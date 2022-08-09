@@ -12,8 +12,6 @@ function pararAnimacion(){
     Pausar
     
     */ 
-
-
     document.getElementById('pista').classList.remove('track');
     document.getElementById('llanta').classList.remove('wheel');
     document.getElementById('llanta2').classList.remove('wheel');
@@ -40,3 +38,17 @@ function seguirAnimacion(){
     document.getElementById('llanta2').classList.add('wheel');
     document.getElementById('carro').classList.add('car');
 }
+
+
+
+
+/**
+ * 
+ * Axios para la Conexion al Backend
+ * 
+ */
+
+
+
+
+
