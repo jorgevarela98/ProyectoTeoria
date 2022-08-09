@@ -296,11 +296,11 @@ function ventanaModal(id, data) {
                     <input type="number" placeholder="" class="form-control" id="mortalidad-p-${i}">
                  </div>
                 <div class="col-4  mb-3">
-                    <span class="sp-form">Muertes por homicidio</span>
+                    <span class="sp-form">Suicidios</span>
                     <input type="number" placeholder="" class="form-control" id="homicidio-p-${i}">
                 </div>
                 <div class="col-4  mb-3">
-                    <span class="sp-form">Muertes por otras causas</span>
+                    <span class="sp-form">Muertes violentas</span>
                     <input type="number" placeholder="" class="form-control" id="otrasMuertes-p-${i}">
                 </div>
             </div>
@@ -418,18 +418,45 @@ function ventanaModal(id, data) {
 
   function  generateInfo(){
     document.getElementById("content-modal-ayuda").innerHTML+=`
-    <p class="text_info ">
-    El siguiente modelo de crecimiento poblacional proyecta la cantidad de habitantes en base al crecimiento poblacional utilizando un algoritmo recursivo que permitirá realizar la proyección en años en base al resultado del crecimiento del año anterior y siguiendo la misma tasa de natalidad, mortalidad.
-    </p>
-    <p>
-    <strong>Modelo Empleado</strong>
-    <img class="img_model" src="img/modelo 1.jpeg">  </p>
-
-    <p class="text_info mt-5">
-    Mediante el cual calcularemos la tasa anual de homicidios y de muertes accidentales por cada mil personas referentes al crecimiento poblacional proyectado. Para el cual usaremos el siguiente modelo:
-    </p>
-    <p>
-    <img class="img_model2" src="img/modelo 2.jpeg">  </p>`
+    <div class="container">
+                <div class="row">
+                    <p class="text_info ">
+                        En el siguiente modelo, se proyecta la cantidad de habitantes con base al crecimiento  de la población, utilizando un algoritmo con recursividad que va a permitir  la proyección en años en base al resultado del crecimiento del año anterior y siguiendo la misma tasa de natalidad, mortalidad.
+                        </p>
+                        <p>
+                </div>
+                <div class="row">
+                    <strong>Formula del Modelo</strong>
+                    <br>
+                    
+                    
+                    <img class="img_model" src="img/modelo 1.jpeg">  </p> 
+                </div>
+                
+                <div class="row">
+                    <p class="text_info mt-5">
+                        Con las siguientes formulas, se calculara la tasa de muertes violentas por homicidio y por suicidios por cada 1,000 habitantes de una cuidad X, haciendo referencia al crecimiento de la poblacion antes proyectado. 
+                        </p>
+                        
+                </div>
+                <div class="row">
+                    <strong>Formulas:</strong>
+                </div>
+                <div class="container" style: >
+                    <div class="row">
+                        <div class="row">
+                            <p>
+                                <img class="img_model2" src="img/formula 2_1.jpeg">  </p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="row">
+                            <p>
+                                <img class="img_model2" src="img/formula 2_2.jpeg">  </p>
+                        </div>
+                    </div>
+                </div>
+            </div>`
   }
 
   

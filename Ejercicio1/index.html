@@ -142,6 +142,16 @@
                                         </button>
                                     </div>
                                     <div class="col">
+                                        <button class="button__main button__red button-save" onclick="ventanaModal('ayuda',{
+                                            title: 'Modelo de crecimiento poblacional',
+                                            width: 1000,
+                                            height: 70,
+                                            content: '',
+                                            action:1});"
+                                            >Ayuda
+                                        </button> 
+                                    </div>
+                                    <div class="col">
                                         <button class="button__main button__red" onclick="calcularCP({flag:false,id:''})">Iniciar</button>
                                     </div>
                                     <div class="col">
@@ -163,54 +173,6 @@
                     </div>
                 </div>
             </div>
-        <footer>
-            <div class="container">
-                <div class="row">
-                    <p class="text_info ">
-                        En el siguiente modelo, se proyecta la cantidad de habitantes con base al crecimiento  de la población, utilizando un algoritmo con recursividad que va a permitir  la proyección en años en base al resultado del crecimiento del año anterior y siguiendo la misma tasa de natalidad, mortalidad.
-                        </p>
-                        <p>
-                </div>
-                <div class="row">
-                    <strong>Formula del Modelo</strong>
-                    <br>
-                    
-                    
-                    <img class="img_model" src="img/modelo 1.jpeg">  </p> 
-                </div>
-                
-                <div class="row">
-                    <p class="text_info mt-5">
-                        Con las siguientes formulas, se calculara la tasa de muertes violentas por homicidio y por suicidios por cada 1,000 habitantes de una cuidad X, haciendo referencia al crecimiento de la poblacion antes proyectado. 
-                        </p>
-                        
-                </div>
-                <div class="row">
-                    <strong>Formulas:</strong>
-                </div>
-                <div class="container">
-                    <div class="row">
-                        <div class="row">
-                            <p>
-                                <img class="img_model2" src="img/formula 2_1.jpeg">  </p>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="row">
-                            <p>
-                                <img class="img_model2" src="img/formula 2_2.jpeg">  </p>
-                        </div>
-                    </div>
-                </div>
-                
-
-            </div>
-            
-            
-                
-            
-                
-        </footer>
         <script src="js/jquery-3.4.1.min.js"></script>
         <script src="js/popper.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
