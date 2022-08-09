@@ -33,6 +33,8 @@ function calcularCP(config) {
     boolTm = validarCampoVacio('txt-tm');
     boolMa = validarCampoVacio('txt-ma');
     boolMh = validarCampoVacio('txt-mh');
+    
+    console.log(config.flag)
     if (boolPi && boolAn && boolTn && boolTm && boolMa && boolMh || config.flag) {
         if(!config.flag){
             indicadores = {
