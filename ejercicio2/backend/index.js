@@ -1,9 +1,10 @@
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
-const cors = require('cors')
-const carrosRouter = require('./routers/carros.router')
-require('dotenv').config()
+const cors = require('cors');
+const carrosRouter = require('./routers/carros.router');
+const modelosRouter = require('./routers/modelos.router');
+require('dotenv').config();
 
 /**
  * Middlewares
@@ -14,6 +15,7 @@ app.use(bodyParser.urlencoded({extended:true}));
 app.use(cors());
 
 app.use('/carros', carrosRouter.router)
+app.use('/modelos', modelosRouter.router)
 
 app.get('/', (req,res)=>{
     res.send('Los meros Sevillistas');
