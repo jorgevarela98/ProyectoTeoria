@@ -38,18 +38,15 @@ const animacionMainController = (bandera)=>{
 
 
 
-/*async function getMarcas(){
-    try {
-        
-    } catch (error) {
-        console.log(error)
-    }
-}*/
-
 fetch('http://localhost:8088/carros/marcas').then(res=>res.json()).then((data)=>{
-    console.log(data);
+  data.map((marca)=>{
+    document.getElementById('marcas-dropdown').innerHTML += `<li><a class="dropdown-item" href="#" onclick="getModelos(${marca.marca_id})">${marca.nombre}</a></li>`
+  });
+  
 }).catch((error)=>{
     console.log(error)
 });
 
-
+const getModelos = async(modelo_id)=>{
+  console.log(modelo_id)
+}
