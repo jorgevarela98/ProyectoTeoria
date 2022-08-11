@@ -8,37 +8,26 @@
  * 
  */
 
- function pararAnimacion(){
+const pararAnimacion = (bandera)=>{
 
-    /*
-    Pausar
-    
-    */ 
-    document.getElementById('pista').classList.remove('track');
-    document.getElementById('llanta').classList.remove('wheel');
-    document.getElementById('llanta2').classList.remove('wheel');
-    document.getElementById('carro').classList.remove('car');
-  
-  
-    document.getElementById('pista').classList.add('trackstop');
-    document.getElementById('llanta').classList.add('wheelstop');
-    document.getElementById('llanta2').classList.add('wheelstop');
-    document.getElementById('carro').classList.add('carstop');
-  }
-  function seguirAnimacion(){
-  
-    document.getElementById('pista').classList.remove('trackstop');
-    document.getElementById('llanta').classList.remove('wheelstop');
-    document.getElementById('llanta2').classList.remove('wheelstop');
-    document.getElementById('carro').classList.remove('carstop');
-    /*Quitar Pausa*/
-  
-  
-  
-    document.getElementById('pista').classList.add('track');
-    document.getElementById('llanta').classList.add('wheel');
-    document.getElementById('llanta2').classList.add('wheel');
-    document.getElementById('carro').classList.add('car');
+    if(bandera == 'reanudar'){
+      animacionController('pista','trackstop','track')
+      animacionController('llanta','wheelstop','wheel')
+      animacionController('llanta2','wheelstop','wheel')
+      animacionController('carro','carstop','car')
+    }
+
+    if (bandera == 'pausar'){
+      animacionController('pista','track','trackstop')
+      animacionController('llanta','wheel','wheelstop')
+      animacionController('llanta2','wheel','wheelstop')
+      animacionController('carro','car','carstop')
+    }
+}
+
+  const animacionController = (id, claseRemover, claseAgregar)=>{
+    document.getElementById(`${id}`).classList.remove(`${claseRemover}`);
+    document.getElementById(`${id}`).classList.add(`${claseAgregar}`);
   }
   
 /**
@@ -46,6 +35,7 @@
  * Axios para la Conexion al Backend
  * 
  */
+
 
 
 /*async function getMarcas(){
