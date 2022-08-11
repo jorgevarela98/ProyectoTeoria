@@ -5,7 +5,7 @@ var bdconfig = {
     password: process.env.db_password,
     server: process.env.server_ip,
     database: process.env.db_nombre,
-    port : process.env.port,
+    port : process.env.db_port,
     options:{ 
         trustedconnection: false,
         enableArthAbort: true,
