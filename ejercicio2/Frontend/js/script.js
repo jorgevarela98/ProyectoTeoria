@@ -8,7 +8,7 @@
  * 
  */
 
-const pararAnimacion = (bandera)=>{
+const animacionMainController = (bandera)=>{
 
     if(bandera == 'reanudar'){
       animacionController('pista','trackstop','track')
