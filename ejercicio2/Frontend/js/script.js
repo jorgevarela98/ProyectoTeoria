@@ -8,6 +8,8 @@
  * 
  */
 
+
+
 const animacionMainController = (bandera)=>{
 
     if(bandera == 'reanudar'){
@@ -36,9 +38,14 @@ const animacionMainController = (bandera)=>{
  * 
  */
 var dropdownValue=0
- 
+var cilindraje = ''
+var tipo_combustible = ''
 const getDataValue = (element)=>{
-  dropdownValue  = element.getAttribute('data-value');
+  dropdownValue  = element.getAttribute('data-modelo');
+  cilindraje = element.getAttribute('data-cilindraje')
+  tipo_combustible = element.getAttribute('data-combustible')
+  document.getElementById('cilindraje-input').value =`${cilindraje}`
+  document.getElementById('combustible-input').value =`${tipo_combustible}`
 }
 
 const comenzarSimulacion = ()=>{
@@ -68,10 +75,11 @@ fetch('http://localhost:8088/carros/marcas').then(res=>res.json()).then((data)=>
 });
 
 const getModelos = async(modelo_id)=>{
+  
   await fetch(`http://localhost:8088/modelos/${modelo_id}`).then(res=>res.json()).then((data)=>{
     document.getElementById('modelo-dropdown').innerHTML =''
     data.map((modelo)=>{
-      document.getElementById('modelo-dropdown').innerHTML +=`<li><a class="dropdown-item" onclick='getDataValue(this)'  href="#" data-value="${modelo.modelo_id}">${modelo.nombre_modelo}</a></li>`
+      document.getElementById('modelo-dropdown').innerHTML +=`<li><a class="dropdown-item" onclick='getDataValue(this)'  href="#" data-cilindraje ="${modelo.motor}" data-combustible="${modelo.tipo_combustible}" data-modelo="${modelo.modelo_id}">${modelo.nombre_modelo}</a></li>`
     });
   }).catch((error)=>{
     console.log(error)
