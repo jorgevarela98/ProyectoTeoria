@@ -35,13 +35,19 @@ const animacionMainController = (bandera)=>{
  * Funciones para la Simulacion
  * 
  */
-const comenzarSimulacion = ()=>{}  
+var dropdownValue=0
+ 
+const getDataValue = (element)=>{
+  dropdownValue  = element.getAttribute('data-value');
+}
+
+const comenzarSimulacion = ()=>{
   
 
+  console.log(dropdownValue);
 
 
-
-
+} 
 
 
 /**
@@ -65,7 +71,7 @@ const getModelos = async(modelo_id)=>{
   await fetch(`http://localhost:8088/modelos/${modelo_id}`).then(res=>res.json()).then((data)=>{
     document.getElementById('modelo-dropdown').innerHTML =''
     data.map((modelo)=>{
-      document.getElementById('modelo-dropdown').innerHTML +=`<li><a class="dropdown-item" href="#">${modelo.nombre_modelo}</a></li>`
+      document.getElementById('modelo-dropdown').innerHTML +=`<li><a class="dropdown-item" onclick='getDataValue(this)'  href="#" data-value="${modelo.modelo_id}">${modelo.nombre_modelo}</a></li>`
     });
   }).catch((error)=>{
     console.log(error)
