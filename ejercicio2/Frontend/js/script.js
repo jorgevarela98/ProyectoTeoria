@@ -29,7 +29,27 @@ const animacionMainController = (bandera)=>{
     document.getElementById(`${id}`).classList.remove(`${claseRemover}`);
     document.getElementById(`${id}`).classList.add(`${claseAgregar}`);
   }
+
+/**
+ * 
+ * Funciones para la Simulacion
+ * 
+ */
+var dropdownValue=0
+ 
+const getDataValue = (element)=>{
+  dropdownValue  = element.getAttribute('data-value');
+}
+
+const comenzarSimulacion = ()=>{
   
+
+  console.log(dropdownValue);
+
+
+} 
+
+
 /**
  * 
  * Axios para la Conexion al Backend
@@ -38,18 +58,22 @@ const animacionMainController = (bandera)=>{
 
 
 
-/*async function getMarcas(){
-    try {
-        
-    } catch (error) {
-        console.log(error)
-    }
-}*/
-
 fetch('http://localhost:8088/carros/marcas').then(res=>res.json()).then((data)=>{
-    console.log(data);
+  document.getElementById('marcas-dropdown').innerHTML =''
+  data.map((marca)=>{
+    document.getElementById('marcas-dropdown').innerHTML += `<li><a class="dropdown-item" href="#" onclick="getModelos(${marca.marca_id})">${marca.nombre}</a></li>`
+  });
 }).catch((error)=>{
     console.log(error)
 });
 
-
+const getModelos = async(modelo_id)=>{
+  await fetch(`http://localhost:8088/modelos/${modelo_id}`).then(res=>res.json()).then((data)=>{
+    document.getElementById('modelo-dropdown').innerHTML =''
+    data.map((modelo)=>{
+      document.getElementById('modelo-dropdown').innerHTML +=`<li><a class="dropdown-item" onclick='getDataValue(this)'  href="#" data-value="${modelo.modelo_id}">${modelo.nombre_modelo}</a></li>`
+    });
+  }).catch((error)=>{
+    console.log(error)
+});
+}
