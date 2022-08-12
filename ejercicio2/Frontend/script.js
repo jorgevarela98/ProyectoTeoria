@@ -1,10 +1,10 @@
 // Obtener una referencia al elemento canvas del DOM
 const $grafica = document.querySelector("#grafica");
 // Las etiquetas son las que van en el eje X. 
-const etiquetas = ["Ciudad", "Carretera"]
+const etiquetas = ["Kilometros por litro"]
 // Podemos tener varios conjuntos de datos. Comencemos con uno
 const datosVentas2020 = {
-    label: "Honda Civic",
+    label: "Honda Civic 1.8",
     data: [12, 16.5], // La data es un arreglo que debe tener la misma cantidad de valores que la cantidad de etiquetas
     backgroundColor: 'rgba(54, 162, 235, 0.2)',  // Color de fondo
     borderColor: 'rgba(54, 162, 235, 1)', // Color del borde
@@ -12,7 +12,7 @@ const datosVentas2020 = {
 };
 
 const datosVentas2021 = {
-    label: "Toyota Corolla",
+    label: "Toyota Corolla 1.6",
     data: [15, 19], // La data es un arreglo que debe tener la misma cantidad de valores que la cantidad de etiquetas
     backgroundColor: 'rgba(255, 159, 64, 0.2)',// Color de fondo
     borderColor: 'rgba(255, 159, 64, 1)',// Color del borde
