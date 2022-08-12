@@ -29,7 +29,21 @@ const animacionMainController = (bandera)=>{
     document.getElementById(`${id}`).classList.remove(`${claseRemover}`);
     document.getElementById(`${id}`).classList.add(`${claseAgregar}`);
   }
+
+/**
+ * 
+ * Funciones para la Simulacion
+ * 
+ */
+const comenzarSimulacion = ()=>{}  
   
+
+
+
+
+
+
+
 /**
  * 
  * Axios para la Conexion al Backend
