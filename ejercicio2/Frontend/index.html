@@ -75,30 +75,78 @@
             </div>
           </div>
           <div class="col" style="padding-top: 10px">
-            <input
-              type="text"
-              style="
-                height: 50px;
-                width: 230px;
-                border-radius: 10px;
-                padding-left: 10px;
-              "
-              placeholder="Cantidad de combustible"
-            />
+            <div class="dropdown">
+              <button
+                class="btn btn-secondary dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                style="
+                  background: #bebebe;
+                  height: 50px;
+                  width: 230px;
+                  border-radius: 10px;
+                  border-color: rgba(255, 255, 255, 0);
+                "
+              >
+                Elija un modelo
+              </button>
+              <ul class="dropdown-menu" id="modelo-dropdown">
+              </ul>
+            </div>
           </div>
           <div class="col" style="padding-top: 10px">
-            <input
-              type="text"
-              style="
-                height: 50px;
-                width: 230px;
-                border-radius: 10px;
-                padding-left: 10px;
-              "
-              placeholder="Cilindraje"
-              id="cilindraje-input"
-              readonly
-            />
+            <div class="dropdown">
+              <button
+                class="btn btn-secondary dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                style="
+                  background: #bebebe;
+                  height: 50px;
+                  width: 230px;
+                  border-radius: 10px;
+                  border-color: rgba(255, 255, 255, 0);
+                "
+              >
+                Seleccione velocidad 
+              </button>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" href="#">0 - 60 Km</a>
+                <a class="dropdown-item" href="#">60 - 120 Km</a>
+                <a class="dropdown-item" href="#">120 - 180 Km</a>
+              </div>
+              <ul class="dropdown-menu" id="velocidades-dropdown">
+                
+              </ul>
+            </div>
+          </div>
+          <div class="col" style="padding-top: 10px">
+            <div class="dropdown">
+              <button
+                class="btn btn-secondary dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                style="
+                  background: #bebebe;
+                  height: 50px;
+                  width: 230px;
+                  border-radius: 10px;
+                  border-color: rgba(255, 255, 255, 0);
+                "
+              >
+                Tipo de transimición 
+              </button>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" href="#">Manual</a>
+                <a class="dropdown-item" href="#">Automática</a>
+              </div>
+              <ul class="dropdown-menu" id="transmision-dropdown">
+                
+              </ul>
+            </div>
           </div>
         </div>
         <div
@@ -125,24 +173,16 @@
                   border-color: rgba(255, 255, 255, 0);
                 "
               >
-                Elija un modelo
+                Escenario
               </button>
-              <ul class="dropdown-menu" id="modelo-dropdown">
+              <div class="dropdown-menu">
+                <a class="dropdown-item" href="#">Ciudad</a>
+                <a class="dropdown-item" href="#">Carretera</a>
+              </div>
+              <ul class="dropdown-menu" id="escenario-dropdown">
               </ul>
             </div>
-          </div>
-          <div class="col" style="padding-top: 10px">
-            <input
-              type="text"
-              style="
-                height: 50px;
-                width: 230px;
-                border-radius: 10px;
-                padding-left: 10px;
-              "
-              placeholder="Velocidad"
-            />
-          </div>
+          </div> 
           <div class="col" style="padding-top: 10px">
             <input
               type="text"
@@ -157,55 +197,34 @@
               readonly
             />
           </div>
-        </div>
-        <div
-          class="row"
-          style="
-            text-align: left;
-            padding-top: 10px;
-            padding-bottom: 10px;
-            margin-top: 10px;
-          "
-        >
-          <div class="col-5" style="text-align: right">
-            <div style="font-size: 30px">
-              <strong
-                style="
-                  color: rgb(255, 255, 255);
-                  border-radius: 8px;
-                  padding: 8px;
-                  padding-right: 75px;
-                  padding-left: 20px;
-                  border: 1.4px solid rgb(255, 255, 255);
-                  font-size: 20px;
-                "
-                >CIUDAD</strong
-              >
-            </div>
+          <div class="col" style="padding-top: 10px">
+            <input
+              type="text"
+              style="
+                height: 50px;
+                width: 230px;
+                border-radius: 10px;
+                padding-left: 10px;
+              "
+              placeholder="Cilindraje"
+              id="cilindraje-input"
+              readonly
+            />
           </div>
-          <div class="col-1" style="padding-top: 11px">
-            <input type="checkbox" />
-          </div>
-          <div class="col-3" style="text-align: right">
-            <div style="font-size: 30px">
-              <strong
-                style="
-                  color: rgb(255, 255, 255);
-                  border-radius: 8px;
-                  padding: 8px;
-                  padding-right: 55px;
-                  padding-left: 20px;
-                  border: 1.4px solid rgb(255, 255, 255);
-                  font-size: 20px;
-                "
-                >CARRETERA</strong
-              >
-            </div>
-          </div>
-          <div class="col-1" style="padding-top: 11px">
-            <input type="checkbox" />
+          <div class="col" style="padding-top: 10px">
+            <input
+              type="text"
+              style="
+                height: 50px;
+                width: 230px;
+                border-radius: 10px;
+                padding-left: 10px;
+              "
+              placeholder="Cantidad de combustible"
+            />
           </div>
         </div>
+
         <div
           class="row"
           style="
@@ -213,6 +232,7 @@
             padding-top: 10px;
             padding-bottom: 10px;
             margin-top: 5px;
+            margin-bottom: 5px;
           "
         >
           <div class="col" style="text-align: center">
@@ -240,17 +260,24 @@
       </div>
     </section>
     <section>
+      <div class="container" >
+        
+      </div>
+
+      </div>
       <div class="container">
-        <div
+        <div class="row">
+          <div class="col" style="text-align: center">
+            <div class="sky">
+              <div
           class="row"
           style="
             text-align: left;
             padding-top: 10px;
             padding-bottom: 10px;
-            margin-top: 5px;
           "
         >
-          <div class="col" style="text-align: center">
+          <div class="col" style="text-align: left; padding-left: 30px">
             <button
               class="btn btn-primary"
               type="button"
@@ -260,7 +287,37 @@
               PAUSAR
             </button>
           </div>
-          <div class="col" style="text-align: center">
+          <div class="col" style="text-align: right;">
+            <button
+              class="btn btn-primary"
+              type="button"
+              style="height: 45px; width: 70px"
+              onclick="animacionMainController('reanudar')"
+            >
+              x1
+            </button>
+          </div> 
+          <div class="col" style="text-align: center;">
+            <button
+              class="btn btn-primary"
+              type="button"
+              style="height: 45px; width: 70px"
+              onclick="animacionMainController('reanudar')"
+            >
+              x2
+            </button>
+          </div>
+          <div class="col" style="text-align: left;">
+            <button
+              class="btn btn-primary"
+              type="button"
+              style="height: 45px; width: 70px"
+              onclick="animacionMainController('reanudar')"
+            >
+              x3
+            </button>
+          </div>
+          <div class="col" style="text-align: right;padding-right: 30px;">
             <button
               class="btn btn-primary"
               type="button"
@@ -271,13 +328,6 @@
             </button>
           </div>
         </div>
-      </div>
-
-      </div>
-      <div class="container">
-        <div class="row">
-          <div class="col" style="text-align: center">
-            <div class="sky">
               <div class="tree"></div>
               <div class="trackstop" id="pista"></div>
               <div class="carstop" id="carro"></div>
