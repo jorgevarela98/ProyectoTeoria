@@ -41,7 +41,11 @@ var dropdownValue=0
 var cilindraje = ''
 var tipo_combustible = ''
 var escenario = '';
-
+var marca = '';                                                                                                                                                                                                                     
+var modelo = '';
+var velocidad = 0;                                                                                                                              
+var transmision  ='';                                                                                                                           
+var cantidadCombustible=0;
 /**
  *Esta funcion sirve para obtener datos de manera asyncrona, no del frontend, si se usa en el frontend, seteara los valores a null
  */
@@ -65,14 +69,11 @@ const getFrontValue = (element)=>{
 }
 
 
-const comenzarSimulacion = ()=>{
-    var marca = '';
-    var modelo = '';
-    var velocidad = 0;
-    var transmision  ='';
-    var cantidadCombustible=0;
 
-  console.log(`Cilindraje de vehiculo ${cilindraje}, con el tipo de combustible: ${tipo_combustible} \n en en el escenario : ${escenario}`);
+const comenzarSimulacion = ()=>{
+        
+    cantidadCombustible = document.getElementById('cantidad-combustible').value;    
+    console.log(`Cilindraje de vehiculo ${cilindraje}, con el tipo de combustible: ${tipo_combustible} \n en en el escenario : ${escenario}`);
 
 
 } 
