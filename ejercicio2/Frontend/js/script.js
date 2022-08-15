@@ -64,16 +64,18 @@ const getDataValue = (element)=>{
  */
 
 
-const getFrontValue = (element)=>{
+const getFrontEscenarioValue = (element)=>{
     escenario = element.getAttribute('data-escenario');
 }
 
+const getFrontVelocidadValue = (element)=>{
+    velocidad = element.getAttribute('data-velocidad');
+}
 
 
-const comenzarSimulacion = ()=>{
-        
+const comenzarSimulacion = ()=>{   
     cantidadCombustible = document.getElementById('cantidad-combustible').value;    
-    console.log(`Cilindraje de vehiculo ${cilindraje}, con el tipo de combustible: ${tipo_combustible} \n en en el escenario : ${escenario}`);
+    console.log(`Cilindraje de vehiculo ${cilindraje}, con el tipo de combustible: ${tipo_combustible} \n en en el escenario : ${escenario} \n con velocidad indice : ${velocidad}`);
 
 
 } 

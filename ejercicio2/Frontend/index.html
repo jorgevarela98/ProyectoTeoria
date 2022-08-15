@@ -113,9 +113,9 @@
                 Seleccione velocidad 
               </button>
               <div class="dropdown-menu">
-                <a class="dropdown-item" href="#">0 - 60 Km</a>
-                <a class="dropdown-item" href="#">60 - 120 Km</a>
-                <a class="dropdown-item" href="#">120 - 180 Km</a>
+                <a class="dropdown-item" data-velocidad="1" onclick="getFrontVelocidadValue(this)"  href="#">0 - 60 Km</a>
+                <a class="dropdown-item" data-velocidad="2" onclick="getFrontVelocidadValue(this)"  href="#">60 - 120 Km</a>
+                <a class="dropdown-item" data-velocidad="3" onclick="getFrontVelocidadValue(this)"  href="#">120 - 180 Km</a>
               </div>
               <ul class="dropdown-menu" id="velocidades-dropdown">
                 
@@ -176,8 +176,8 @@
                 Escenario
               </button>
               <div class="dropdown-menu">
-                <a class="dropdown-item" onclick="getFrontValue(this)" data-escenario="ciudad" href="#">Ciudad</a>
-                <a class="dropdown-item" onclick="getFrontaValue(this)" data-escenario="carretera" href="#">Carretera</a>
+                <a class="dropdown-item" onclick="getFrontEscenarioValue(this)" data-escenario="ciudad" href="#">Ciudad</a>
+                <a class="dropdown-item" onclick="getFrontEscenarioValue(this)" data-escenario="carretera" href="#">Carretera</a>
               </div>
               <ul class="dropdown-menu" id="escenario-dropdown">
               </ul>
