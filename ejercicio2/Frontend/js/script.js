@@ -40,18 +40,39 @@ const animacionMainController = (bandera)=>{
 var dropdownValue=0
 var cilindraje = ''
 var tipo_combustible = ''
+var escenario = '';
+
+/**
+ *Esta funcion sirve para obtener datos de manera asyncrona, no del frontend, si se usa en el frontend, seteara los valores a null
+ */
 const getDataValue = (element)=>{
-  dropdownValue  = element.getAttribute('data-modelo');
-  cilindraje = element.getAttribute('data-cilindraje')
-  tipo_combustible = element.getAttribute('data-combustible')
-  document.getElementById('cilindraje-input').value =`${cilindraje}`
-  document.getElementById('combustible-input').value =`${tipo_combustible}`
+    dropdownValue  = element.getAttribute('data-modelo');
+    cilindraje = element.getAttribute('data-cilindraje')
+    tipo_combustible = element.getAttribute('data-combustible')
+    document.getElementById('cilindraje-input').value =`${cilindraje}`
+    document.getElementById('combustible-input').value =`${tipo_combustible}`
 }
 
-const comenzarSimulacion = ()=>{
-  
+/**
+ *  Esta funcion si sirve para obtener algunos valores del frontend, de manera sincrona, para dropdowns
+ *  utilizar esta para eso, no para asyncs. 
+ *
+ */
 
-  console.log(dropdownValue);
+
+const getFrontValue = (element)=>{
+    escenario = element.getAttribute('data-escenario');
+}
+
+
+const comenzarSimulacion = ()=>{
+    var marca = '';
+    var modelo = '';
+    var velocidad = 0;
+    var transmision  ='';
+    var cantidadCombustible=0;
+
+  console.log(`Cilindraje de vehiculo ${cilindraje}, con el tipo de combustible: ${tipo_combustible} \n en en el escenario : ${escenario}`);
 
 
 } 
