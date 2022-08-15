@@ -80,6 +80,7 @@
                   width: 230px;
                   border-radius: 10px;
                   border-color: rgba(255, 255, 255, 0);
+<<<<<<< HEAD
                 ">
               Seleccione velocidad
             </button>
@@ -87,6 +88,20 @@
               <a class="dropdown-item" href="#">0 - 60 Km</a>
               <a class="dropdown-item" href="#">60 - 120 Km</a>
               <a class="dropdown-item" href="#">120 - 180 Km</a>
+=======
+                "
+              >
+                Seleccione velocidad 
+              </button>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" data-velocidad="1" onclick="getFrontVelocidadValue(this)"  href="#">0 - 60 Km</a>
+                <a class="dropdown-item" data-velocidad="2" onclick="getFrontVelocidadValue(this)"  href="#">60 - 120 Km</a>
+                <a class="dropdown-item" data-velocidad="3" onclick="getFrontVelocidadValue(this)"  href="#">120 - 180 Km</a>
+              </div>
+              <ul class="dropdown-menu" id="velocidades-dropdown">
+                
+              </ul>
+>>>>>>> 5f06c3fc2ed3b363c6107d18bb31b465307ab1a6
             </div>
             <ul class="dropdown-menu" id="velocidades-dropdown">
 
@@ -130,12 +145,25 @@
                   width: 230px;
                   border-radius: 10px;
                   border-color: rgba(255, 255, 255, 0);
+<<<<<<< HEAD
                 ">
               Escenario
             </button>
             <div class="dropdown-menu">
               <a class="dropdown-item" onclick="getFrontValue(this)" data-escenario="ciudad" href="#">Ciudad</a>
               <a class="dropdown-item" onclick="getFrontaValue(this)" data-escenario="carretera" href="#">Carretera</a>
+=======
+                "
+              >
+                Escenario
+              </button>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" onclick="getFrontEscenarioValue(this)" data-escenario="ciudad" href="#">Ciudad</a>
+                <a class="dropdown-item" onclick="getFrontEscenarioValue(this)" data-escenario="carretera" href="#">Carretera</a>
+              </div>
+              <ul class="dropdown-menu" id="escenario-dropdown">
+              </ul>
+>>>>>>> 5f06c3fc2ed3b363c6107d18bb31b465307ab1a6
             </div>
             <ul class="dropdown-menu" id="escenario-dropdown">
             </ul>
