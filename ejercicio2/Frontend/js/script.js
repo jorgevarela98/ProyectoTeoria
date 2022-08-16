@@ -8,7 +8,7 @@
  * 
  */
 
-
+var pausaAnimacion = false;
 
 const animacionMainController = (bandera)=>{
 
@@ -16,14 +16,16 @@ const animacionMainController = (bandera)=>{
       animacionController('pista','trackstop','track')
       animacionController('llanta','wheelstop','wheel')
       animacionController('llanta2','wheelstop','wheel')
-      animacionController('carro','carstop','car')
+        animacionController('carro','carstop','car')
+        pausaAnimacion = false;
     }
 
     if (bandera == 'pausar'){
       animacionController('pista','track','trackstop')
       animacionController('llanta','wheel','wheelstop')
       animacionController('llanta2','wheel','wheelstop')
-      animacionController('carro','car','carstop')
+        animacionController('carro','car','carstop')
+        ejecucionAnimacion = true;
     }
 }
 
@@ -69,16 +71,79 @@ const getFrontEscenarioValue = (element)=>{
 }
 
 const getFrontVelocidadValue = (element)=>{
-    velocidad = element.getAttribute('data-velocidad');
+    velocidad = parseInt(element.getAttribute('data-velocidad'));
 }
 
 
-const comenzarSimulacion = ()=>{   
-    cantidadCombustible = document.getElementById('cantidad-combustible').value;    
-    console.log(`Cilindraje de vehiculo ${cilindraje}, con el tipo de combustible: ${tipo_combustible} \n en en el escenario : ${escenario} \n con velocidad indice : ${velocidad}`);
+document.getElementById('btn-pausa').addEventListener('click', ()=>{
+    pausaAnimacion = true;
+})
 
+const pausador = ()=>{
+    return new Promise((resolve)=>{
+        let reanudarClick = ()=>{
+            document.getElementById('btn-reanudar').removeEventListener('click', reanudarClick);
+            pausaAnimacion = false;
+            resolve('resolved');
+        }
 
+        document.getElementById('btn-reanudar').addEventListener('click', reanudarClick);
+    });
 } 
+
+const comenzarSimulacion = async()=>{   
+    cantidadCombustible = document.getElementById('cantidad-combustible').value;    
+    var velocidad_carro = 0;
+    /**
+     * Los ciclos for dentro del switch-case, iran bajando 
+    */
+    switch (velocidad) {
+        case 1:
+            velocidad_carro = numeroAleatorioVelocidad(0,60);
+            
+            
+        
+            for (let i=0; i <= cantidadCombustible; i++) {
+        
+            
+               console.log(pausaAnimacion) 
+
+                
+                setTimeout(()=>{ 
+                        console.log(i);
+                    },800);    
+                
+                //if(pausaAnimacion)await pausador(); 
+                
+            }
+            break;
+        case 2:
+            velocidad_carro = numeroAleatorioVelocidad(61,120);
+            //console.log(velocidad_carro);
+            
+            for (let i=0; i <= cantidadCombustible; i++) {
+            }
+            break;
+
+        case 3:
+            velocidad_carro = numeroAleatorioVelocidad(121,180);
+            console.log(velocidad_carro);
+            
+            for (let i=0; i <= cantidadCombustible; i++) {
+            }
+            break;
+        default:
+            alert('Selección no valida');
+            break;
+    }
+
+
+}
+
+
+const numeroAleatorioVelocidad = (minimo, maximo)=>{
+    return Math.floor(Math.random()*(maximo-minimo+1)+minimo);
+}
 
 
 /**
