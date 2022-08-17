@@ -25,7 +25,9 @@ const obtenerSimulaciones = async()=>{
     try {
         pool = await mssql.connect(bdConfig.bdconfig);
         let simulaciones = pool.request()
-            .query()
+            .query('select marca.nombre ,modelo.nombre,simulacion.consumo_actual,'
+            +'simulacion.escenario,simulacion.velocidad from simulacion join modelo on simulacion.modelo_id=modelo.modeloID'+
+            'join marca on modelo.marca_ID=MARCA.marca_id');
         return (await simulaciones).recordsets;
     } catch (err) {
         console.log(`Error en la base de datos: ${err}`)
@@ -34,12 +36,15 @@ const obtenerSimulaciones = async()=>{
     }
 }
 
-const obtenerSimulacion = async(id)=>{
+const obtenerSimulacion = async(simulacion_id)=>{
     let pool;
     try{
         pool = await mssql.connect(bdConfig.bdconfig);
         let simulacion = pool.request()
-            .query();
+            .input('simulacion_id',mssql.Int,simulacion_id)
+            .query('select marca.nombre ,modelo.nombre,simulacion.consumo_actual,'+
+            'simulacion.escenario,simulacion.velocidad from simulacion join modelo on simulacion.modelo_id=modelo.modeloID'+
+            +'join marca on modelo.marca_ID=MARCA.marca_id where simulacion_id=@simulacion_id');
         return (await simulacion).recordsets;
     }catch(err){
         console.log(`Error en la base de datos: ${err}`)
@@ -49,5 +54,7 @@ const obtenerSimulacion = async(id)=>{
 }
 
 module.exports={
-    insertarSimulacion
+    insertarSimulacion,
+    obtenerSimulacion,
+    obtenerSimulaciones
 }
