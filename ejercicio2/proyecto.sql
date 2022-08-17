@@ -21,6 +21,16 @@ CREATE TABLE MODELO(
     CONSTRAINT fk_marca_id_modelo FOREIGN KEY (marca_id) REFERENCES MARCA(marca_id)
 );
 
+/*TAbla nueva*/
+create table simulacion(
+simulacion_id integer identity(1,1) primary key,
+modelo_id integer,
+consumo_actual float,
+escenario varchar(20),
+velocidad float
+constraint fkModelo foreign key (modelo_id) references modelo (modelo_id))
+
+
 INSERT INTO MARCA(nombre) VALUES ('Toyota');
 INSERT INTO MARCA(nombre) VALUES ('Honda');
 INSERT INTO MARCA(nombre) VALUES ('Ford');
@@ -34,7 +44,7 @@ INSERT INTO MARCA(nombre) VALUES ('Chevrolet');
 INSERT INTO MARCA(nombre) VALUES ('Dodge');
 
 
-SELECT * FROM MARCA;
+SELECT * FROM modelo;
 
 /*CHEVROLET*/
 INSERT INTO MODELO(nombre_modelo, marca_id, motor, consumo_medio, tipo_combustible, anio, transmision,pais) VALUES('Spark',10,'1400',18.22,'Gasolina',2020,'Manual','USA');
