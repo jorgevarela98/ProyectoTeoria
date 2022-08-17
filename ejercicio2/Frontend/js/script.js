@@ -62,12 +62,16 @@ var consumo_reflejado = 0;
 /**
  *Esta funcion sirve para obtener datos de manera asyncrona, no del frontend, si se usa en el frontend, seteara los valores a null
  */
-const getDataValue = (element)=>{
-    id_modelo  = element.getAttribute('data-modelo');
-    cilindraje = element.getAttribute('data-cilindraje')
-    tipo_combustible = element.getAttribute('data-combustible')
-    consumo_medio = element.getAttribute('data-consumo');
-    document.getElementById('cilindraje-input').value =`${cilindraje}`
+const getDataValue = ()=>{
+    let element = document.getElementById('modelo-dropdown');
+
+    id_modelo  = element.options[element.selectedIndex].getAttribute('data-modelo');
+    cilindraje = element.options[element.selectedIndex].getAttribute('data-cilindraje')
+    tipo_combustible = element.options[element.selectedIndex].getAttribute('data-combustible')
+    consumo_medio = element.options[element.selectedIndex].getAttribute('data-consumo');
+    transmision = element.options[element.selectedIndex].getAttribute('data-transmision')
+    document.getElementById('transmision-input').value=`${transmision}`
+    document.getElementById('cilindraje-input').value =`${cilindraje}`;
     document.getElementById('combustible-input').value =`${tipo_combustible}`
 }
 
@@ -78,12 +82,12 @@ const getDataValue = (element)=>{
  */
 
 
-const getFrontEscenarioValue = (element)=>{
-    escenario = element.getAttribute('data-escenario');
+const getFrontEscenarioValue = ()=>{
+    escenario = document.getElementById('escenario-dropdown').value;
 }
 
-const getFrontVelocidadValue = (element)=>{
-    velocidad = parseInt(element.getAttribute('data-velocidad'));
+const getFrontVelocidadValue = ()=>{
+    velocidad = parseInt(document.getElementById('velocidad-dropdown').value);
 }
 
 
@@ -253,7 +257,7 @@ async function  simulacionTerminada(){
         }
 
         console.log('Simulacion Terminada');
-        console.log(data)
+        
         await fetch('http://localhost:8088/simulacion/',{
             method: 'POST',
             body:JSON.stringify(data),
@@ -281,19 +285,22 @@ const numeroAleatorioVelocidad = (minimo, maximo)=>{
 
 
 fetch('http://localhost:8088/carros/marcas').then(res=>res.json()).then((data)=>{
-  document.getElementById('marcas-dropdown').innerHTML =''
+    document.getElementById('marcas-dropdown').innerHTML ='<option selected>Elija una Marca</option>'
     data.map((marca)=>{
-        document.getElementById('marcas-dropdown').innerHTML += `<li><a class="dropdown-item" href="#" onclick="getModelos(${marca.marca_id})">${marca.nombre}</a></li>`
+
+        document.getElementById('marcas-dropdown').innerHTML += `<option value="${marca.marca_id}">${marca.nombre}</option>`
   });
 }).catch((error)=>{
     console.log(error)
 });
 
-const getModelos = async(modelo_id,marca_nombre)=>{
-    await fetch(`http://localhost:8088/modelos/${modelo_id}`).then(res=>res.json()).then((data)=>{
-    document.getElementById('modelo-dropdown').innerHTML =''
+const getModelos = async()=>{
+    mod_id = document.getElementById('marcas-dropdown').value
+    
+    await fetch(`http://localhost:8088/modelos/${mod_id}`).then(res=>res.json()).then((data)=>{
+        document.getElementById('modelo-dropdown').innerHTML =''
         data.map((modelo)=>{
-            document.getElementById('modelo-dropdown').innerHTML +=`<li><a class="dropdown-item" onclick='getDataValue(this)'  href="#" data-consumo ="${modelo.consumo_medio}" data-cilindraje ="${modelo.motor}" data-combustible="${modelo.tipo_combustible}" data-modelo="${modelo.modelo_id}">${modelo.nombre_modelo}</a></li>`
+            document.getElementById('modelo-dropdown').innerHTML +=`<option data-transmision="${modelo.transmision}" data-consumo ="${modelo.consumo_medio}" data-cilindraje ="${modelo.motor}" data-combustible="${modelo.tipo_combustible}" data-modelo="${modelo.modelo_id}">${modelo.nombre_modelo}</option>`
     });
   }).catch((error)=>{
     console.log(error)
