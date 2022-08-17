@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <html lang="en">
 
 <head>
@@ -488,4 +489,410 @@
   <script src="./js/script.js"></script>
 </body>
 
+=======
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
+  <link rel="stylesheet" href="./styles/style.css">
+  <!-- CSS only -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous" />
+  <!-- JavaScript Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+    crossorigin="anonymous"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet" />
+
+  <title>Simulador de consumo de conbustible</title>
+</head>
+
+<body style="background: rgb(14, 9, 70); font-family: 'Bangers', cursive">
+  <section>
+    <div class="container" style="text-align: center; margin-top: 25px">
+      <div class="row">
+        <div class="col-md-12">
+          <h1 style="color: rgb(255, 255, 255)">
+            ¿Cuanto consume tu vehículo?
+          </h1>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section>
+    <div class="container">
+      <div class="row" style="
+            text-align: center;
+            margin-top: 10px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+          ">
+        <div class="col" style="padding-top: 10px">
+          <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+              aria-expanded="false" style="
+                  background: #bebebe;
+                  height: 50px;
+                  width: 230px;
+                  border-radius: 10px;
+                  border-color: rgba(255, 255, 255, 0);
+                ">
+              Elija una marca
+            </button>
+            <ul class="dropdown-menu" id="marcas-dropdown">
+
+            </ul>
+          </div>
+        </div>
+        <div class="col" style="padding-top: 10px">
+          <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+              aria-expanded="false" style="
+                  background: #bebebe;
+                  height: 50px;
+                  width: 230px;
+                  border-radius: 10px;
+                  border-color: rgba(255, 255, 255, 0);
+                ">
+              Elija un modelo
+            </button>
+            <ul class="dropdown-menu" id="modelo-dropdown">
+            </ul>
+          </div>
+        </div>
+        <div class="col" style="padding-top: 10px">
+          <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+              aria-expanded="false" style="
+                  background: #bebebe;
+                  height: 50px;
+                  width: 230px;
+                  border-radius: 10px;
+                  border-color: rgba(255, 255, 255, 0);
+
+                ">
+              Seleccione velocidad
+            </button>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" data-velocidad="1" onclick="getFrontVelocidadValue(this)" href="#">0 - 60
+                Km</a>
+              <a class="dropdown-item" data-velocidad="2" onclick="getFrontVelocidadValue(this)" href="#">60 - 120
+                Km</a>
+              <a class="dropdown-item" data-velocidad="3" onclick="getFrontVelocidadValue(this)" href="#">120 - 180
+                Km</a>
+            </div>
+          </div>
+        </div>
+        <div class="col" style="padding-top: 10px">
+          <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+              aria-expanded="false" style="
+                  background: #bebebe;
+                  height: 50px;
+                  width: 230px;
+                  border-radius: 10px;
+                  border-color: rgba(255, 255, 255, 0);
+                ">
+              Tipo de transimición
+            </button>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="#">Manual</a>
+              <a class="dropdown-item" href="#">Automática</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row" style="
+            text-align: center;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            margin-top: px;
+          ">
+        <div class="col" style="padding-top: 10px">
+          <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+              aria-expanded="false" style="
+                  background: #bebebe;
+                  height: 50px;
+                  width: 230px;
+                  border-radius: 10px;
+                  border-color: rgba(255, 255, 255, 0);
+                ">
+              Escenario
+            </button>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" onclick="getFrontEscenarioValue(this)" data-escenario="ciudad"
+                href="#">Ciudad</a>
+              <a class="dropdown-item" onclick="getFrontEscenarioValue(this)" data-escenario="carretera"
+                href="#">Carretera</a>
+            </div>
+          </div>
+        </div>
+        <div class="col" style="padding-top: 10px">
+          <input type="text" style="
+                height: 50px;
+                width: 230px;
+                border-radius: 10px;
+                padding-left: 10px;
+              " placeholder="Tipo de combustible" id="combustible-input" readonly />
+        </div>
+        <div class="col" style="padding-top: 10px">
+          <input type="text" style="
+                height: 50px;
+                width: 230px;
+                border-radius: 10px;
+                padding-left: 10px;
+              " placeholder="Cilindraje" id="cilindraje-input" readonly />
+        </div>
+        <div class="col" style="padding-top: 10px">
+          <input type="text" style="
+                height: 50px;
+                width: 230px;
+                border-radius: 10px;
+                padding-left: 10px;
+              " id="cantidad-combustible" placeholder="Cantidad de combustible" />
+        </div>
+      </div>
+
+      <div class="row" style="
+            text-align: left;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            margin-top: 5px;
+            margin-bottom: 5px;
+          ">
+        <div class="col" style="text-align: center">
+          <button class="btn btn-primary" type="button" style="height: 45px; width: 170px"
+            onclick="comenzarSimulacion()">
+            SIMULAR
+          </button>
+        </div>
+        <div class="col" style="text-align: center">
+          <button class="btn btn-primary" type="button" style="height: 45px; width: 170px" data-bs-toggle="modal"
+            data-bs-target="#myModal">
+            RESULTADOS
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section>
+    <div class="container">
+
+    </div>
+
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col" style="text-align: center">
+          <div class="sky">
+            <div class="row" style="
+            text-align: left;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            margin-bottom: 10px;
+          ">
+              <div class="col" style="text-align: left; padding-left: 30px">
+                <button class="btn btn-primary" type="button" style="height: 45px; width: 170px"
+                  onclick="animacionMainController('pausar')" id="btn-pausa">
+                  PAUSAR
+                </button>
+              </div>
+              <div class="col" style="text-align: right;">
+                <button class="btn btn-primary" type="button" style="height: 45px; width: 70px"
+                  onclick="animacionMainController('reanudar')">
+                  x1
+                </button>
+              </div>
+              <div class="col" style="text-align: center;">
+                <button class="btn btn-primary" type="button" style="height: 45px; width: 70px"
+                  onclick="animacionMainController('reanudar')">
+                  x2
+                </button>
+              </div>
+              <div class="col" style="text-align: left;">
+                <button class="btn btn-primary" type="button" style="height: 45px; width: 70px"
+                  onclick="animacionMainController('reanudar')">
+                  x3
+                </button>
+              </div>
+              <div class="col" style="text-align: right;padding-right: 30px;">
+                <button class="btn btn-primary" type="button" style="height: 45px; width: 170px"
+                  onclick="animacionMainController('reanudar')" id="btn-reanudar">
+                  REANUDAR
+                </button>
+              </div>
+            </div>
+            <div class="tree">
+              <div class="row">
+                <div class="col" style="text-align: left; padding-left: 30px">
+                  <button class="btn btn-primary" type="button" style="height: 45px; width: 170px">
+                    Reiniciar
+                  </button>
+                </div>
+                <div class="col" style="padding:0px 30px 0px 500px">
+                  <div class="card" style="border-radius: 10px; background-color: rgba(0, 0, 0, 0.267); ">
+                    <div class="card-body" style="padding: 10px;">
+                      <h5 class="card-title" style="text-align: center; color: white; margin-bottom: 5px;">
+                        Panel de datos
+                      </h5>
+                      <div class="row">
+                        <div class="col">
+                          <div class="table-responsive" style="
+                              border-style: solid;
+                              border-width: 0.5px;
+                              border-color: rgba(0, 0, 0, 0.158);
+                              padding-top: 15px;
+                              border-radius: 10px;
+                            ">
+                            <table class="table">
+                              <thead></thead>
+                              <tbody>
+                                <tr>
+                                  <td style="
+                                      border-top-width: 0.5px;
+                                      border-top-style: solid;
+                                    ">
+                                    Combustible consumido
+                                  </td>
+                                  <td style="
+                                      border-left-width: 1px;
+                                      border-left-style: solid;
+                                      border-top-width: 0.5px;
+                                      border-top-style: solid;
+                                      color: white;
+                                    ">
+                                    x Litros
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>Kilometraje recorrido</td>
+                                  <td style="
+                                      border-left-width: 1px;
+                                      border-left-style: solid;
+                                      color: white;
+                                    ">
+                                    x Km
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>Velocidad</td>
+                                  <td style="
+                                      border-left-width: 1px;
+                                      border-left-style: solid;
+                                      color: white;
+                                    ">
+                                    x Km / h
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="trackstop" id="pista"></div>
+            <div class="carstop" id="carro"></div>
+            <div class=" wheelstop wheel1" id="llanta"></div>
+            <div class="wheelstop wheel2" id="llanta2"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="modal" id="myModal" tabindex="-1" style="font-family: 'Bangers', cursive""
+    >
+      <div class=" modal-dialog modal-dialog-centered modal-xl">
+    <div class="modal-content" style="background: rgb(14, 9, 70); color: white; text-align: center">
+      <div class="modal-header">
+        <h1 style="margin-left: 500px">Sus Resultados</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+        <body>
+          <section>
+            <div class="container" style="text-align: center; margin-top: 25px"></div>
+          </section>
+          <section>
+            <div class="container">
+              <div class="row" style="
+                      text-align: center;
+                      margin-top: 30px;
+                      padding-top: 10px;
+                      padding-bottom: 10px;
+                      padding-right: 30px;
+                      padding-left: 30px;
+                    ">
+                <div class="col" style="background: #ffffff; border-radius: 5px">
+                  <div class="table-responsive">
+                    <table class="table" style="text-align: center; font-size: 20px">
+                      <thead>
+                        <tr></tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td style="font-weight: bold">Marca</td>
+                          <td>Honda</td>
+                        </tr>
+                        <tr class="table-secondary">
+                          <td style="font-weight: bold">Modelo</td>
+                          <td>Civic</td>
+                        </tr>
+                        <tr>
+                          <td style="font-weight: bold">Combustible</td>
+                          <td>Gasolina</td>
+                        </tr>
+                        <tr class="table-secondary">
+                          <td style="font-weight: bold">Rendimiento</td>
+                          <td>20 km/galon</td>
+                        </tr>
+                        <tr>
+                          <td style="font-weight: bold">
+                            Consumo reflejado
+                          </td>
+                          <td>Lps 500</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </body>
+      </div>
+      <div style="margin-bottom: 25px;">
+        <div class="row" style="
+                text-align: left;
+                padding-top: 10px;
+                padding-bottom: 10px;
+                margin-top: 12px;
+              ">
+          <div class="col" style="text-align: center">
+            <button class="btn btn-primary" type="button" style="height: 45px; width: 170px" href="">
+              <a style="color: white" href="/ejercicio2/Frontend/comparativa.html">Realizar comparación</a>
+            </button>
+          </div>
+          <div class="col" style="text-align: center">
+            <button class="btn btn-primary" type="button" data-bs-dismiss="modal" style="height: 45px; width: 140px">
+              Aceptar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  <script src="./js/script.js"></script>
+</body>
+
+>>>>>>> 146a620d1fbe70a71e444ecba4f769aa10ba4832
 </html>
