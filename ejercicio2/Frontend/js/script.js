@@ -141,6 +141,8 @@ const comenzarSimulacion = async()=>{
                         consumo_medio -=((kilometros_recorridos/cantidadCombustible)*0.05).toFixed(2);
                         rendimiento = (consumo_medio/cantidadCombustible).toFixed(2);
                         consumo_reflejado= ((kilometros_recorridos/cantidadCombustible)*31.75).toFixed(2);
+                        document.getElementById('front-consumo').innerHTML =`${i} Litros`;
+                        document.getElementById('front-kmrecorrido').innerHTML=` ${kilometros_recorridos} KM`;
                         console.log(`Combusitble Consumido: ${aux_combustible} Litros \n Kilometros Recorrido: ${kilometros_recorridos} Kilometros\n  Velocidad: ${velocidad_carro}Km/H \n consumo medio: ${consumo_medio}\n Consumo Reflejado: Lps. ${consumo_reflejado}`);
                         if (i==cantidadCombustible){
                                 this.simulacionTerminada();                   
@@ -157,6 +159,8 @@ const comenzarSimulacion = async()=>{
                         consumo_medio -= ((kilometros_recorridos/cantidadCombustible)*0.15).toFixed(2);
                         rendimiento = (consumo_medio/cantidadCombustible).toFixed(2);
                         consumo_reflejado = ((kilometros_recorridos/cantidadCombustible)*31.75).toFixed(2);
+                        document.getElementById('front-consumo').innerHTML =`${i} Litros`;
+                        document.getElementById('front-kmrecorrido').innerHTML=` ${kilometros_recorridos} KM`;
                         console.log(`Combusitble Consumido: ${aux_combustible} Litros \n Kilometros Recorrido: ${kilometros_recorridos} Kilometros\n  Velocidad: ${velocidad_carro}Km/H \n consumo medio: ${consumo_medio}\n Consumo Reflejado: Lps. ${consumo_reflejado}`);
                         if (i==cantidadCombustible){
                                 this.simulacionTerminada();                   
@@ -178,6 +182,8 @@ const comenzarSimulacion = async()=>{
                         consumo_medio-=((kilometros_recorridos/cantidadCombustible)*0.20).toFixed(2);
                         rendimiento = (consumo_medio/cantidadCombustible).toFixed(2);
                         consumo_reflejado = ((kilometros_recorridos/cantidadCombustible)*31.75).toFixed(2);
+                        document.getElementById('front-consumo').innerHTML =`${i} Litros`;
+                        document.getElementById('front-kmrecorrido').innerHTML=` ${kilometros_recorridos} KM`;
                         console.log(`Combusitble Consumido: ${aux_combustible} Litros \n Kilometros Recorrido: ${kilometros_recorridos} Kilometros\n  Velocidad: ${velocidad_carro}Km/H \n consumo medio: ${consumo_medio}\n Consumo Reflejado: Lps. ${consumo_reflejado}`);
                         if (i==cantidadCombustible){
                                 this.simulacionTerminada();                   
@@ -193,6 +199,8 @@ const comenzarSimulacion = async()=>{
                         consumo_medio-=((kilometros_recorridos/cantidadCombustible)*0.30).toFixed(2);
                         rendimiento = (consumo_medio/cantidadCombustible).toFixed(2);
                         consumo_reflejado = ((kilometros_recorridos/cantidadCombustible)*31.75).toFixed(2);
+                        document.getElementById('front-consumo').innerHTML =`${i} Litros`;
+                        document.getElementById('front-kmrecorrido').innerHTML=` ${kilometros_recorridos} KM`;
                         console.log(`Combusitble Consumido: ${aux_combustible} Litros \n Kilometros Recorrido: ${kilometros_recorridos} Kilometros\n  Velocidad: ${velocidad_carro}Km/H \n consumo medio: ${consumo_medio}\n Consumo Reflejado: Lps. ${consumo_reflejado}`);
                         if (i==cantidadCombustible){
                                 this.simulacionTerminada();                   
@@ -213,6 +221,8 @@ const comenzarSimulacion = async()=>{
                         consumo_medio-=((kilometros_recorridos/cantidadCombustible)*0.30).toFixed(2);
                         rendimiento = (consumo_medio/cantidadCombustible).toFixed(2);
                         consumo_reflejado = ((kilometros_recorridos/cantidadCombustible)*31.75).toFixed(2);
+                        document.getElementById('front-consumo').innerHTML =`${i} Litros`;
+                        document.getElementById('front-kmrecorrido').innerHTML=` ${kilometros_recorridos} KM`;
                         console.log(`Combusitble Consumido: ${aux_combustible} Litros \n Kilometros Recorrido: ${kilometros_recorridos} Kilometros\n  Velocidad: ${velocidad_carro}Km/H \n consumo medio: ${consumo_medio}\n Consumo Reflejado: Lps. ${consumo_reflejado}`);
                         if (i==cantidadCombustible){
                                 this.simulacionTerminada();                   
@@ -228,6 +238,8 @@ const comenzarSimulacion = async()=>{
                         consumo_medio-=((kilometros_recorridos/cantidadCombustible)*0.40).toFixed(2);
                         rendimiento = (consumo_medio/cantidadCombustible).toFixed(2);
                         consumo_reflejado = ((kilometros_recorridos/cantidadCombustible)*31.75).toFixed(2);
+                        document.getElementById('front-consumo').innerHTML =`${i} Litros`;
+                        document.getElementById('front-kmrecorrido').innerHTML=` ${kilometros_recorridos} KM`;
                         console.log(`Combusitble Consumido: ${aux_combustible} Litros \n Kilometros Recorrido: ${kilometros_recorridos} Kilometros\n  Velocidad: ${velocidad_carro}Km/H \n consumo medio: ${consumo_medio}\n Consumo Reflejado: Lps. ${consumo_reflejado}`);
                         if (i==cantidadCombustible){
                             this.simulacionTerminada();                   
@@ -274,6 +286,16 @@ async function  simulacionTerminada(){
 const numeroAleatorioVelocidad = (minimo, maximo)=>{
     return Math.floor(Math.random()*(maximo-minimo+1)+minimo);
 }
+
+const reestablecerValores = ()=>{
+    document.getElementById('cantidad-combustible').value=''; 
+    document.getElementById('front-consumo').innerHTML =``;
+    document.getElementById('front-kmrecorrido').innerHTML=``;
+    document.getElementById('transmision-input').value=``;
+    document.getElementById('cilindraje-input').value =``;
+    document.getElementById('combustible-input').value =``;
+}
+
 
 
 /**

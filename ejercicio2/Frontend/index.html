@@ -219,7 +219,7 @@
             <div class="tree">
               <div class="row">
                 <div class="col" style="text-align: left; padding-left: 30px">
-                  <button class="btn btn-primary" type="button" style="height: 45px; width: 170px">
+                  <button class="btn btn-primary" type="button" style="height: 45px; width: 170px" onclick="reestablecerValores()">
                     Restablecer
                   </button>
                 </div>
@@ -255,7 +255,11 @@
                                       border-top-style: solid;
                                       color: white;
                                     ">
-                                    x Litros
+                                      <div id="front-consumo">
+                                          
+                                          
+                                      </div>
+                                     
                                   </td>
                                 </tr>
                                 <tr>
@@ -265,17 +269,9 @@
                                       border-left-style: solid;
                                       color: white;
                                     ">
-                                    x Km
-                                  </td>
-                                </tr>
-                                <tr>
-                                  <td>Velocidad</td>
-                                  <td style="
-                                      border-left-width: 1px;
-                                      border-left-style: solid;
-                                      color: white;
-                                    ">
-                                    x Km / h
+                                     <div id="front-kmrecorrido">
+                                         
+                                     </div> 
                                   </td>
                                 </tr>
                               </tbody>
