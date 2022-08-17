@@ -38,80 +38,75 @@
             padding-top: 10px;
             padding-bottom: 10px;
           ">
-        <div class="col" style="padding-top: 10px">
-          <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
-              aria-expanded="false" style="
-                  background: #bebebe;
-                  height: 50px;
-                  width: 230px;
-                  border-radius: 10px;
-                  border-color: rgba(255, 255, 255, 0);
-                ">
-              Elija una marca
-            </button>
-            <ul class="dropdown-menu" id="marcas-dropdown">
+        <div class="col" style="padding: 10px;">
+          <select class="form-select" id="marcas-dropdown" aria-label="Default select example" style="
+          background: #bebebe;
+          height: 50px;
+          width: 230px;
+          border-radius: 10px;
+          border-color: rgba(255, 255, 255, 0);
+          color: white;
+          text-align: center;
+          margin: 0 auto;
+        ">
+            <option selected>Elija una marca</option>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+          </select>
+        </div>
+        <div class="col" style="padding: 10px;">
+          <select class="form-select" id="modelo-dropdown" aria-label="Default select example" style="
+          background: #bebebe;
+          height: 50px;
+          width: 230px;
+          border-radius: 10px;
+          border-color: rgba(255, 255, 255, 0);
+          color: white;
+          text-align: center;
+          margin: 0 auto;
+        ">
+            <option selected>Elija un modelo</option>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+          </select>
+        </div>
+        <div class="col" style="padding: 10px;">
+          <select class="form-select" id="modelo-dropdown" aria-label="Default select example" style="
+          background: #bebebe;
+          height: 50px;
+          width: 230px;
+          border-radius: 10px;
+          border-color: rgba(255, 255, 255, 0);
+          color: white;
+          text-align: center;
+          margin: 0 auto;
+        ">
+            <option selected>Seleccione velocidad</option>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+          </select>
+        </div>
+        <div class="col" style="padding: 10px;">
+          <select class="form-select" aria-label="Default select example" style="
+          background: #bebebe;
+          height: 50px;
+          width: 230px;
+          border-radius: 10px;
+          border-color: rgba(255, 255, 255, 0);
+          color: white;
+          text-align: center;
+          margin: 0 auto;
+        ">
+            <option selected>Escenario</option>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+          </select>
+        </div>
 
-            </ul>
-          </div>
-        </div>
-        <div class="col" style="padding-top: 10px">
-          <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
-              aria-expanded="false" style="
-                  background: #bebebe;
-                  height: 50px;
-                  width: 230px;
-                  border-radius: 10px;
-                  border-color: rgba(255, 255, 255, 0);
-                ">
-              Elija un modelo
-            </button>
-            <ul class="dropdown-menu" id="modelo-dropdown">
-            </ul>
-          </div>
-        </div>
-        <div class="col" style="padding-top: 10px">
-          <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
-              aria-expanded="false" style="
-                  background: #bebebe;
-                  height: 50px;
-                  width: 230px;
-                  border-radius: 10px;
-                  border-color: rgba(255, 255, 255, 0);
-
-                ">
-              Seleccione velocidad
-            </button>
-            <div class="dropdown-menu">
-              <a class="dropdown-item" data-velocidad="1" onclick="getFrontVelocidadValue(this)" href="#">0 - 60
-                Km</a>
-              <a class="dropdown-item" data-velocidad="2" onclick="getFrontVelocidadValue(this)" href="#">60 - 120
-                Km</a>
-              <a class="dropdown-item" data-velocidad="3" onclick="getFrontVelocidadValue(this)" href="#">120 - 180
-                Km</a>
-            </div>
-          </div>
-        </div>
-        <div class="col" style="padding-top: 10px">
-          <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
-              aria-expanded="false" style="
-                  background: #bebebe;
-                  height: 50px;
-                  width: 230px;
-                  border-radius: 10px;
-                  border-color: rgba(255, 255, 255, 0);
-                ">
-              Tipo de transimición
-            </button>
-            <div class="dropdown-menu">
-              <a class="dropdown-item" href="#">Manual</a>
-              <a class="dropdown-item" href="#">Automática</a>
-            </div>
-          </div>
-        </div>
       </div>
       <div class="row" style="
             text-align: center;
@@ -120,24 +115,12 @@
             margin-top: px;
           ">
         <div class="col" style="padding-top: 10px">
-          <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
-              aria-expanded="false" style="
-                  background: #bebebe;
-                  height: 50px;
-                  width: 230px;
-                  border-radius: 10px;
-                  border-color: rgba(255, 255, 255, 0);
-                ">
-              Escenario
-            </button>
-            <div class="dropdown-menu">
-              <a class="dropdown-item" onclick="getFrontEscenarioValue(this)" data-escenario="ciudad"
-                href="#">Ciudad</a>
-              <a class="dropdown-item" onclick="getFrontEscenarioValue(this)" data-escenario="carretera"
-                href="#">Carretera</a>
-            </div>
-          </div>
+          <input type="text" style="
+                height: 50px;
+                width: 230px;
+                border-radius: 10px;
+                padding-left: 10px;
+              " placeholder="Transmisión" id="transmision-input" readonly />
         </div>
         <div class="col" style="padding-top: 10px">
           <input type="text" style="
