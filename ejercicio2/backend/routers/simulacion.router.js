@@ -10,11 +10,24 @@ router.post('/',(req,res)=>{
 });
 
 router.get('/simulaciones',(req,res)=>{
-    res.send('Trae los datos de las simulaciones de la base de datos');
+    simModel.obtenerSimulaciones.then((resultado)=>{
+        res.send(resultado);
+    }).catch((err)=>{
+        res.status(500).send(err);
+    }).finally(()=>{
+            res.status(200);
+        
+    })
 });
 
 router.get('/simulacion/:id',(req,res)=>{
-    res.send('Trae los datos de una sola simulacion')
+    simModel.obtenerSimulacion(req.params.simulacion_id).then((resultado)=>{
+        res.send(resultado)
+    }).catch((error)=>{
+        res.status(500).send(error);
+    }).finally(()=>{
+        res.status(200);
+    })
 });
 
 
