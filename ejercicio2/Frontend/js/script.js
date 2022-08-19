@@ -41,16 +41,41 @@ const animacionMainController = (bandera)=>{
   }
 
 const porDos = ()=>{
-
+    let track = document.querySelector('#pista');
+    track.classList.toggle("tracktwo");
+    let wheel1 = document.querySelector('#llanta') ;
+    wheel1.classList.toggle("wheeltwo");
+    let wheel2 = document.querySelector('#llanta2') ;
+    wheel2.classList.toggle("wheeltwo");
 }
 
 const porTres = ()=>{
-
+    let track = document.querySelector('#pista');
+    track.classList.toggle("trackthree");
+    let wheel1 = document.querySelector('#llanta') ;
+    wheel1.classList.toggle("wheelthree");
+    let wheel2 = document.querySelector('#llanta2') ;
+    wheel2.classList.toggle("wheelthree");
 }
 
 const porDefecto = ( )=>{
+    //animacionMainController('reanudar')
     
+    let track = document.querySelector('#pista');
+    let wheel1 = document.querySelector('#llanta') ;
+    let wheel2 = document.querySelector('#llanta2') ;
+    if (track.classList.contains("tracktwo") == true &&wheel1.classList.contains("wheeltwo")&&wheel2.classList.contains("wheeltwo")) {
+        track.classList.add("track");
+        wheel1.classList.add("wheel");
+        wheel2.classList.add("wheel");
+    }
+    if (track.classList.contains("trackthree") == true &&wheel1.classList.contains("wheelthree")&&wheel2.classList.contains("wheelthree")) {
+        track.classList.add("track");
+        wheel1.classList.add("wheel");
+        wheel2.classList.add("wheel");
+    }
 }
+
 
 /**
  * 
