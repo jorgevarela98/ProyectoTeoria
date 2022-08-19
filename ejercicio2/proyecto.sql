@@ -22,13 +22,15 @@ CREATE TABLE MODELO(
 );
 
 /*TAbla nueva*/
-create table simulacion(
+create table SIMULACION(
 simulacion_id integer identity(1,1) primary key,
 modelo_id integer,
 consumo_actual float,
 escenario varchar(20),
-velocidad float
-constraint fkModelo foreign key (modelo_id) references modelo (modelo_id))
+velocidad float,
+rendimiento FLOAT
+
+constraint fkModelo foreign key (modelo_id) references MODELO (modelo_id));
 
 
 INSERT INTO MARCA(nombre) VALUES ('Toyota');

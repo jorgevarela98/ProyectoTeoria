@@ -176,12 +176,15 @@ const config = {
     data: datos,
     options: {
         scales: {
-            yAxes: [{
+            yAxis: {
+                display:true,
+                max: 8,
+                beginAtZero: true,
                 ticks: {
-                    steps:10,
-                    beginAtZero: true,
+                    steps:1,
+                    
                 }
-            }],
+            },
         },
     }
 }
@@ -192,6 +195,7 @@ const updateChart=(carro1, carro2)=>{
     datos.datasets[1].label=carro2.label;
     datos.datasets[0].data =carro1.data;
     datos.datasets[1].data=carro2.data;
+    config.options.scales.yAxis.ticks.max=10;
     chart.update()
 }
 // new Chart($grafica, {
