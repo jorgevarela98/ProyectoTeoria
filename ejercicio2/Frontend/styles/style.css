@@ -26,7 +26,7 @@
     background-repeat: repeat-x;
     position: absolute;
     bottom: 0%;
-    width: 700%;
+    width: 1200%;
     display: block;
     left: 0%;
     height: 20vh;
@@ -93,6 +93,45 @@
     animation: wheelanimationstop linear .6s infinite;
 }
 
+/*
+x2
+*/
+
+.wheeltwo{
+    position: absolute;
+    animation: wheelanimationtwo linear .6s infinite;
+}
+.tracktwo{
+    background-image: url('../assets/track.jpeg');
+    background-repeat: repeat-x;
+    position: absolute;
+    bottom: 0%;
+    width: 1200%;
+    display: block;
+    left: 0%;
+    height: 20vh;
+    animation: trackanimationtwo 6s linear infinite;
+}
+
+
+/*
+x3
+*/
+.wheelthree{
+    position: absolute;
+    animation: wheelanimationthree linear .6s infinite;
+}
+.trackthree{
+    background-image: url('../assets/track.jpeg');
+    background-repeat: repeat-x;
+    position: absolute;
+    bottom: 0%;
+    width: 1200%;
+    display: block;
+    left: 0%;
+    height: 20vh;
+    animation: trackanimationthree 6s linear infinite;
+}
  /*
  Para la animaciones del carro
  */
@@ -108,7 +147,40 @@
         transform: translate(-500vw);
     }
 }
+/*
+X2
+*/
 
+@keyframes wheelanimationtwo{
+
+    100%{
+        transform: rotate(720deg);
+    }
+}
+@keyframes trackanimationtwo{
+     
+    100%{
+        transform: translate(-800vw);
+    }
+}
+
+/*
+x3
+*/
+
+
+@keyframes wheelanimationthree{
+
+    100%{
+        transform: rotate(1080deg);
+    }
+}
+@keyframes trackanimationthree{
+     
+    100%{
+        transform: translate(-1100vw);
+    }
+}
 
 @keyframes suspension{
     100%{

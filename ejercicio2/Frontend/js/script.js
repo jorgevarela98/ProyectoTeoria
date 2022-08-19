@@ -31,7 +31,7 @@ const animacionMainController = (bandera)=>{
       animacionController('llanta','wheel','wheelstop')
       animacionController('llanta2','wheel','wheelstop')
         animacionController('carro','car','carstop')
-        ejecucionAnimacion = true;
+        pausaAnimacion = true;
     }
 }
 
@@ -39,6 +39,18 @@ const animacionMainController = (bandera)=>{
     document.getElementById(`${id}`).classList.remove(`${claseRemover}`);
     document.getElementById(`${id}`).classList.add(`${claseAgregar}`);
   }
+
+const porDos = ()=>{
+
+}
+
+const porTres = ()=>{
+
+}
+
+const porDefecto = ( )=>{
+    
+}
 
 /**
  * 
@@ -119,7 +131,8 @@ const pausador = ()=>{
     });
 } 
 
-const comenzarSimulacion = async()=>{   
+const comenzarSimulacion = async()=>{
+    
     cantidadCombustible = document.getElementById('cantidad-combustible').value;
     /*
      *Variables para mostrar en el front:
@@ -140,11 +153,17 @@ const comenzarSimulacion = async()=>{
      *
     * */
     switch (velocidad) {
+        
         case 1:
+
+            animacionMainController('reanudar');
             velocidad_carro =numeroAleatorioVelocidad(0,60);
             if (escenario == 'carretera') {
                 for (let i = 0; i <= cantidadCombustible; i++) {
                     setTimeout(()=>{
+                    if(pausaAnimacion){
+                        console.log('pausa')
+                    }
                         /*
                          *Hay menos distancia por los factores de caretera o ciudad y la velocidad entonces provoca mas consumo de combustible y hace menos distancia.
                             * */
@@ -157,6 +176,8 @@ const comenzarSimulacion = async()=>{
                         document.getElementById('front-kmrecorrido').innerHTML=` ${kilometros_recorridos} KM`;
                         console.log(`Combusitble Consumido: ${aux_combustible} Litros \n Kilometros Recorrido: ${kilometros_recorridos} Kilometros\n  Velocidad: ${velocidad_carro}Km/H \n consumo medio: ${consumo_medio}\n Consumo Reflejado: Lps. ${consumo_reflejado}`);
                         if (i==cantidadCombustible){
+                            
+                                animacionMainController('pausar');
                                 this.simulacionTerminada();                   
                         }
                                 
@@ -175,6 +196,7 @@ const comenzarSimulacion = async()=>{
                         document.getElementById('front-kmrecorrido').innerHTML=` ${kilometros_recorridos} KM`;
                         console.log(`Combusitble Consumido: ${aux_combustible} Litros \n Kilometros Recorrido: ${kilometros_recorridos} Kilometros\n  Velocidad: ${velocidad_carro}Km/H \n consumo medio: ${consumo_medio}\n Consumo Reflejado: Lps. ${consumo_reflejado}`);
                         if (i==cantidadCombustible){
+                            animacionMainController('pausar');
                                 this.simulacionTerminada();                   
                         }
                     },i*2000);
@@ -185,6 +207,7 @@ const comenzarSimulacion = async()=>{
             break;
 
         case 2:
+            animacionMainController('reanudar');
             velocidad_carro = numeroAleatorioVelocidad(61,120);
             if(escenario == 'carretera'){
                 for (let i=0 ; i<=cantidadCombustible; i++) {
@@ -198,6 +221,7 @@ const comenzarSimulacion = async()=>{
                         document.getElementById('front-kmrecorrido').innerHTML=` ${kilometros_recorridos} KM`;
                         console.log(`Combusitble Consumido: ${aux_combustible} Litros \n Kilometros Recorrido: ${kilometros_recorridos} Kilometros\n  Velocidad: ${velocidad_carro}Km/H \n consumo medio: ${consumo_medio}\n Consumo Reflejado: Lps. ${consumo_reflejado}`);
                         if (i==cantidadCombustible){
+                            animacionMainController('pausar');
                                 this.simulacionTerminada();                   
                         }
                     },i*2000);
@@ -215,6 +239,7 @@ const comenzarSimulacion = async()=>{
                         document.getElementById('front-kmrecorrido').innerHTML=` ${kilometros_recorridos} KM`;
                         console.log(`Combusitble Consumido: ${aux_combustible} Litros \n Kilometros Recorrido: ${kilometros_recorridos} Kilometros\n  Velocidad: ${velocidad_carro}Km/H \n consumo medio: ${consumo_medio}\n Consumo Reflejado: Lps. ${consumo_reflejado}`);
                         if (i==cantidadCombustible){
+                            animacionMainController('pausar');
                                 this.simulacionTerminada();                   
                         }
                     },  i*2000);
@@ -224,6 +249,7 @@ const comenzarSimulacion = async()=>{
             break;
 
         case 3:
+            animacionMainController('reanudar');
             velocidad_carro = numeroAleatorioVelocidad(121,180);
             if (escenario == 'carretera') { 
                 for (let i=0 ; i<=cantidadCombustible; i++) {
@@ -237,6 +263,7 @@ const comenzarSimulacion = async()=>{
                         document.getElementById('front-kmrecorrido').innerHTML=` ${kilometros_recorridos} KM`;
                         console.log(`Combusitble Consumido: ${aux_combustible} Litros \n Kilometros Recorrido: ${kilometros_recorridos} Kilometros\n  Velocidad: ${velocidad_carro}Km/H \n consumo medio: ${consumo_medio}\n Consumo Reflejado: Lps. ${consumo_reflejado}`);
                         if (i==cantidadCombustible){
+                                animacionMainController('pausar');
                                 this.simulacionTerminada();                   
                         }
                     },i*2000);
@@ -254,6 +281,7 @@ const comenzarSimulacion = async()=>{
                         document.getElementById('front-kmrecorrido').innerHTML=` ${kilometros_recorridos} KM`;
                         console.log(`Combusitble Consumido: ${aux_combustible} Litros \n Kilometros Recorrido: ${kilometros_recorridos} Kilometros\n  Velocidad: ${velocidad_carro}Km/H \n consumo medio: ${consumo_medio}\n Consumo Reflejado: Lps. ${consumo_reflejado}`);
                         if (i==cantidadCombustible){
+                            animacionMainController('pausar');
                             this.simulacionTerminada();                   
                         }
                     },i*2000);
