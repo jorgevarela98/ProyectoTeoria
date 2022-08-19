@@ -21,15 +21,15 @@ var comp_data = JSON.parse(window.localStorage.getItem('simulacion'))
 fetch(`http://localhost:8088/simulacion/simulacion/${comp_data.modelo}`).then(res =>res.json()).then(data =>{
     console.log(data[0]);
     data[0].map(sim =>{
-        if(comp_data.velocidad == sim.velocidad && comp_data.escenario_sim == sim.escenario && comp_data.consumo == sim.consumo_actual){
-            //Setear los valoers en la tabla de carro encontrado
-            document.getElementById('comparacion-marca').innerHTML = ` ${sim.nombre} `;
-            document.getElementById('comparacion-modelo').innerHTML = ` ${sim.nombre_modelo} `;
-            document.getElementById('comparacion-combustible').innerHTML = ` ${sim.tipo_combustible} `;
-            document.getElementById('comparacion-cilindraje').innerHTML = ` ${sim.motor} `;
-            document.getElementById('comparacion-velocidad').innerHTML = ` ${sim.velocidad} `;
-            document.getElementById('comparacion-escenario').innerHTML = ` ${sim.escenario} `;
-        }
+         if(comp_data.velocidad == sim.velocidad && comp_data.escenario_sim == sim.escenario && comp_data.consumo == sim.consumo_actual){
+             //Setear los valoers en la tabla de carro encontrado
+             document.getElementById('comparacion-marca').innerHTML = ` ${sim.nombre} `;
+             document.getElementById('comparacion-modelo').innerHTML = ` ${sim.nombre_modelo} `;
+             document.getElementById('comparacion-combustible').innerHTML = ` ${sim.tipo_combustible} `;
+             document.getElementById('comparacion-cilindraje').innerHTML = ` ${sim.motor} `;
+             document.getElementById('comparacion-velocidad').innerHTML = ` ${sim.velocidad} `;
+             document.getElementById('comparacion-escenario').innerHTML = ` ${sim.escenario} `;
+         }
     });
 }).catch(e=>console.log(e));
 
@@ -39,7 +39,10 @@ fetch('http://localhost:8088/simulacion/simulaciones').then(res => res.json()).t
          * GENERAAR LAS SIMULACIONES DINAMICAMENTE EN EL SCROLL 
          *
             * */
-        console.log(sims)
+        document.getElementById('scroll').innerHTML+=` <div class="row">
+        <button type="button" class="btn btn-light comparar">${sims.nombre} ${sims.nombre_modelo}   \t  en      ${sims.escenario}  a ${sims.velocidad}  KM/H</button>
+      </div>`
+
     })
 }).catch(e=>console.log(e));
 

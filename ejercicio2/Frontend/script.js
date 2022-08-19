@@ -5,7 +5,7 @@ const etiquetas = ["Kilometros por litro"]
 // Podemos tener varios conjuntos de datos. Comencemos con uno
 const datosVentas2020 = {
     label: "Honda Civic 1.8",
-    data: [12, 16.5], // La data es un arreglo que debe tener la misma cantidad de valores que la cantidad de etiquetas
+    data: [1, 16.5], // La data es un arreglo que debe tener la misma cantidad de valores que la cantidad de etiquetas
     backgroundColor: 'rgba(54, 162, 235, 0.2)',  // Color de fondo
     borderColor: 'rgba(54, 162, 235, 1)', // Color del borde
     borderWidth: 1,// Ancho del borde
