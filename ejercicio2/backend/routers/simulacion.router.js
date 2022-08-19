@@ -10,7 +10,7 @@ router.post('/',(req,res)=>{
 });
 
 router.get('/simulaciones',(req,res)=>{
-    simModel.obtenerSimulaciones.then((resultado)=>{
+    simModel.obtenerSimulaciones().then((resultado)=>{
         res.send(resultado);
     }).catch((err)=>{
         res.status(500).send(err);
@@ -21,7 +21,7 @@ router.get('/simulaciones',(req,res)=>{
 });
 
 router.get('/simulacion/:id',(req,res)=>{
-    simModel.obtenerSimulacion(req.params.simulacion_id).then((resultado)=>{
+    simModel.obtenerSimulacion(req.params.id).then((resultado)=>{
         res.send(resultado)
     }).catch((error)=>{
         res.status(500).send(error);

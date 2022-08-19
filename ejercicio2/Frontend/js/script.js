@@ -8,6 +8,12 @@
  * 
  */
 
+if (window.localStorage.getItem('simulacion')!=null){
+    window.localStorage.clear();
+}
+
+
+
 var pausaAnimacion = false;
 
 const animacionMainController = (bandera)=>{
@@ -58,13 +64,19 @@ var sim_termianda = false;
 var rendimiento=0;
 var consumo_reflejado = 0;
 
+var data = {}
 
 /**
  *Esta funcion sirve para obtener datos de manera asyncrona, no del frontend, si se usa en el frontend, seteara los valores a null
  */
+
+const getMarcaValue = ()=>{
+    let element = document.getElementById('marcas-dropdown');
+    marca = element.options[element.selectedIndex].getAttribute('data-marca');
+}
 const getDataValue = ()=>{
     let element = document.getElementById('modelo-dropdown');
-
+    modelo = element.options[element.selectedIndex].getAttribute('data-nombremodelo');
     id_modelo  = element.options[element.selectedIndex].getAttribute('data-modelo');
     cilindraje = element.options[element.selectedIndex].getAttribute('data-cilindraje')
     tipo_combustible = element.options[element.selectedIndex].getAttribute('data-combustible')
@@ -260,7 +272,7 @@ const comenzarSimulacion = async()=>{
 
 
 async function  simulacionTerminada(){
-        var data = {
+        data = {
             modelo:id_modelo,
             velocidad: parseFloat(velocidad_carro),
             escenario_sim : escenario,
@@ -288,6 +300,7 @@ const numeroAleatorioVelocidad = (minimo, maximo)=>{
 }
 
 const reestablecerValores = ()=>{
+    data = {}
     document.getElementById('cantidad-combustible').value=''; 
     document.getElementById('front-consumo').innerHTML =``;
     document.getElementById('front-kmrecorrido').innerHTML=``;
@@ -295,6 +308,34 @@ const reestablecerValores = ()=>{
     document.getElementById('cilindraje-input').value =``;
     document.getElementById('combustible-input').value =``;
 }
+
+
+const setDataModalResultados = ()=>{
+    /**
+     * Para ver si exite datos dentro del json, si no existen mostrara un modal vacio o con un mensaje que diga que no la realizado una simulacion.....
+     * en caso contrario, mostrara los datos del json. Esa sera la simulacion actual.
+     * 
+     */
+    if (isEmpty(data)){
+        document.getElementById('tableCaption').innerHTML+=`<caption style="font-weight: bold; color:black;">NO SE HA REALIZADO NINGUNA SIMULACIÓN</caption>`;
+        document.getElementById('comparativa-btn').disabled = true;
+    }else{ 
+        document.getElementById('comparativa-btn').disabled = false;
+        document.getElementById('resultado-marca').innerHTML = `${marca}`;
+        document.getElementById('resultado-modelo').innerHTML=`${modelo}`;
+        document.getElementById('resultado-combustible').innerHTML = `${aux_combustible} Litros`;
+        document.getElementById('resultado-rendimiento').innerHTML = `${rendimiento} KM/Litro`;
+        document.getElementById('resultado-consumo').innerHTML=  `Lps.${consumo_reflejado}`
+        window.localStorage.setItem('simulacion',JSON.stringify(data));
+    }
+
+
+}
+
+//funcion para saber si ujn objeto Json esta vacio
+//
+
+const isEmpty = (o)=>Object.keys(o).length ===0;
 
 
 
@@ -310,7 +351,7 @@ fetch('http://localhost:8088/carros/marcas').then(res=>res.json()).then((data)=>
     document.getElementById('marcas-dropdown').innerHTML ='<option selected>Elija una Marca</option>'
     data.map((marca)=>{
 
-        document.getElementById('marcas-dropdown').innerHTML += `<option value="${marca.marca_id}">${marca.nombre}</option>`
+        document.getElementById('marcas-dropdown').innerHTML += `<option data-marca="${marca.nombre}" value="${marca.marca_id}">${marca.nombre}</option>`
   });
 }).catch((error)=>{
     console.log(error)
@@ -322,7 +363,7 @@ const getModelos = async()=>{
     await fetch(`http://localhost:8088/modelos/${mod_id}`).then(res=>res.json()).then((data)=>{
         document.getElementById('modelo-dropdown').innerHTML =''
         data.map((modelo)=>{
-            document.getElementById('modelo-dropdown').innerHTML +=`<option data-transmision="${modelo.transmision}" data-consumo ="${modelo.consumo_medio}" data-cilindraje ="${modelo.motor}" data-combustible="${modelo.tipo_combustible}" data-modelo="${modelo.modelo_id}">${modelo.nombre_modelo}</option>`
+            document.getElementById('modelo-dropdown').innerHTML +=`<option data-nombremodelo ="${modelo.nombre_modelo}" data-transmision="${modelo.transmision}" data-consumo ="${modelo.consumo_medio}" data-cilindraje ="${modelo.motor}" data-combustible="${modelo.tipo_combustible}" data-modelo="${modelo.modelo_id}">${modelo.nombre_modelo}</option>`
     });
   }).catch((error)=>{
     console.log(error)

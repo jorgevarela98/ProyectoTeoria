@@ -25,9 +25,9 @@ const obtenerSimulaciones = async()=>{
     try {
         pool = await mssql.connect(bdConfig.bdconfig);
         let simulaciones = pool.request()
-            .query('select marca.nombre ,modelo.nombre,simulacion.consumo_actual,'
-            +'simulacion.escenario,simulacion.velocidad from simulacion join modelo on simulacion.modelo_id=modelo.modeloID'+
-            'join marca on modelo.marca_ID=MARCA.marca_id');
+            .query('select marca.nombre ,modelo.nombre_modelo,simulacion.consumo_actual,'
+            +'simulacion.escenario,simulacion.velocidad from simulacion join modelo on simulacion.modelo_id=modelo.modelo_id '+
+            'join marca on modelo.marca_id=MARCA.marca_id');
         return (await simulaciones).recordsets;
     } catch (err) {
         console.log(`Error en la base de datos: ${err}`)
@@ -36,16 +36,14 @@ const obtenerSimulaciones = async()=>{
     }
 }
 
-const obtenerSimulacion = async(simulacion_id)=>{
+const obtenerSimulacion = async(modelo_id)=>{
     let pool;
     try{
         pool = await mssql.connect(bdConfig.bdconfig);
-        let simulacion = pool.request()
-            .input('simulacion_id',mssql.Int,simulacion_id)
-            .query('select marca.nombre ,modelo.nombre,simulacion.consumo_actual,'+
-            'simulacion.escenario,simulacion.velocidad from simulacion join modelo on simulacion.modelo_id=modelo.modeloID'+
-            +'join marca on modelo.marca_ID=MARCA.marca_id where simulacion_id=@simulacion_id');
-        return (await simulacion).recordsets;
+        let sim = pool.request()
+            .input('modelo_id',mssql.Int,modelo_id)
+            .query('select marca.nombre,modelo.motor, modelo.tipo_combustible ,modelo.nombre_modelo,simulacion.consumo_actual, simulacion.escenario,simulacion.velocidad from simulacion join modelo on simulacion.modelo_id=modelo.modelo_id join marca on modelo.marca_id=MARCA.marca_id where simulacion.modelo_id=@modelo_id');
+        return (await sim).recordsets;
     }catch(err){
         console.log(`Error en la base de datos: ${err}`)
     }finally{
