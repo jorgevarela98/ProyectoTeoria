@@ -147,40 +147,7 @@ x3
         transform: translate(-500vw);
     }
 }
-/*
-X2
-*/
 
-@keyframes wheelanimationtwo{
-
-    100%{
-        transform: rotate(720deg);
-    }
-}
-@keyframes trackanimationtwo{
-     
-    100%{
-        transform: translate(-800vw);
-    }
-}
-
-/*
-x3
-*/
-
-
-@keyframes wheelanimationthree{
-
-    100%{
-        transform: rotate(1080deg);
-    }
-}
-@keyframes trackanimationthree{
-     
-    100%{
-        transform: translate(-1100vw);
-    }
-}
 
 @keyframes suspension{
     100%{
