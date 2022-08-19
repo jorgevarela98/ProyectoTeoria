@@ -11,7 +11,8 @@ const insertarSimulacion = async(simulacion_json)=>{
             .input('consumo_actual',mssql.Float, simulacion_json.consumo)
             .input('escenario_simulacion',mssql.VarChar, simulacion_json.escenario_sim)
             .input('velocidad',mssql.Float, simulacion_json.velocidad)
-            .query('INSERT INTO SIMULACION (modelo_id, consumo_actual, escenario, velocidad) VALUES (@modelo_id, @consumo_actual,@escenario_simulacion,@velocidad);');    
+            .input('rendimeinto', mssql.Float, simulacion_json.rendimiento_carro)
+            .query('INSERT INTO SIMULACION (modelo_id, consumo_actual, escenario, velocidad,rendimiento) VALUES (@modelo_id, @consumo_actual,@escenario_simulacion,@velocidad, @rendimeinto);');    
     } catch (error){
         console.log(`Error en la base de datos: ${error}`)
     }finally{
@@ -26,7 +27,7 @@ const obtenerSimulaciones = async()=>{
         pool = await mssql.connect(bdConfig.bdconfig);
         let simulaciones = pool.request()
             .query('select marca.nombre ,modelo.nombre_modelo,simulacion.consumo_actual,'
-            +'simulacion.escenario,simulacion.velocidad from simulacion join modelo on simulacion.modelo_id=modelo.modelo_id '+
+            +'simulacion.escenario,simulacion.velocidad, simulacion.rendimiento from simulacion join modelo on simulacion.modelo_id=modelo.modelo_id '+
             'join marca on modelo.marca_id=MARCA.marca_id');
         return (await simulaciones).recordsets;
     } catch (err) {
@@ -42,7 +43,7 @@ const obtenerSimulacion = async(modelo_id)=>{
         pool = await mssql.connect(bdConfig.bdconfig);
         let sim = pool.request()
             .input('modelo_id',mssql.Int,modelo_id)
-            .query('select marca.nombre,modelo.motor, modelo.tipo_combustible ,modelo.nombre_modelo,simulacion.consumo_actual, simulacion.escenario,simulacion.velocidad from simulacion join modelo on simulacion.modelo_id=modelo.modelo_id join marca on modelo.marca_id=MARCA.marca_id where simulacion.modelo_id=@modelo_id');
+            .query('select marca.nombre,modelo.motor, modelo.tipo_combustible ,modelo.nombre_modelo,simulacion.consumo_actual, simulacion.escenario,simulacion.velocidad, simulacion.rendimiento from simulacion join modelo on simulacion.modelo_id=modelo.modelo_id join marca on modelo.marca_id=MARCA.marca_id where simulacion.modelo_id=@modelo_id');
         return (await sim).recordsets;
     }catch(err){
         console.log(`Error en la base de datos: ${err}`)
@@ -51,8 +52,25 @@ const obtenerSimulacion = async(modelo_id)=>{
     }
 }
 
+const obtenerSimulacionEscenario = async(escenario)=>{
+    let pool;
+    try{
+        pool = await mssql.connect(bdConfig.bdconfig);
+        let sim = pool.request()
+            .input('escenario',mssql.VarChar,escenario)
+            .query('select marca.nombre,modelo.motor, modelo.tipo_combustible ,modelo.nombre_modelo,simulacion.consumo_actual, simulacion.escenario,simulacion.velocidad, simulacion.rendimiento from simulacion join modelo on simulacion.modelo_id=modelo.modelo_id join marca on modelo.marca_id=MARCA.marca_id where simulacion.escenario=@escenario');
+        return (await sim).recordsets;
+    }catch(err){
+        console.log(`Error en la base de datos: ${err}`)
+    }finally{
+        pool.close();
+    }
+}
+
+
 module.exports={
     insertarSimulacion,
     obtenerSimulacion,
-    obtenerSimulaciones
+    obtenerSimulaciones,
+    obtenerSimulacionEscenario
 }

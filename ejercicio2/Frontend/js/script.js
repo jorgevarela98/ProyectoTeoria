@@ -8,7 +8,7 @@
  * 
  */
 
-if (window.localStorage.getItem('simulacion')!=null){
+if (window.localStorage.getItem('simulacion')!=null && window.localStorage.getItem('carro_select')!=null && window.localStorage.getItem('rendimiento')!=null){
     window.localStorage.clear();
 }
 
@@ -329,7 +329,8 @@ async function  simulacionTerminada(){
             modelo:id_modelo,
             velocidad: parseFloat(velocidad_carro),
             escenario_sim : escenario,
-            consumo : consumo_reflejado
+            consumo : consumo_reflejado,
+            rendimiento_carro: rendimiento
 
         }
 
@@ -380,6 +381,7 @@ const setDataModalResultados = ()=>{
         document.getElementById('resultado-rendimiento').innerHTML = `${rendimiento} KM/Litro`;
         document.getElementById('resultado-consumo').innerHTML=  `Lps.${consumo_reflejado}`
         window.localStorage.setItem('simulacion',JSON.stringify(data));
+        window.localStorage.setItem('rendimiento',JSON.stringify(rendimiento));
     }
 
 

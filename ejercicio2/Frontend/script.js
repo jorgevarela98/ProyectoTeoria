@@ -1,87 +1,91 @@
-// Obtener una referencia al elemento canvas del DOM
-const $grafica = document.querySelector("#grafica");
-// Las etiquetas son las que van en el eje X. 
-const etiquetas = ["Kilometros por litro"]
-// Podemos tener varios conjuntos de datos. Comencemos con uno
-const datosVentas2020 = {
-    label: "Honda Civic 1.8",
-    data: [1, 16.5], // La data es un arreglo que debe tener la misma cantidad de valores que la cantidad de etiquetas
-    backgroundColor: 'rgba(54, 162, 235, 0.2)',  // Color de fondo
-    borderColor: 'rgba(54, 162, 235, 1)', // Color del borde
-    borderWidth: 1,// Ancho del borde
-};
 
-const datosVentas2021 = {
-    label: "Toyota Corolla 1.6",
-    data: [15, 19], // La data es un arreglo que debe tener la misma cantidad de valores que la cantidad de etiquetas
-    backgroundColor: 'rgba(255, 159, 64, 0.2)',// Color de fondo
-    borderColor: 'rgba(255, 159, 64, 1)',// Color del borde
-    borderWidth: 1,// Ancho del borde
-};
+var chart_carro_select = JSON.parse(window.localStorage.getItem('carro_select'));
 
-const data = [{x: '1.8 C.C.', net: 150}];
-const data2 = [{x: '1.6 C.C.', cogs: 55}];
 
-new Chart($grafica, {
-    type: 'bar',// Tipo de gráfica
-    data: {
-        labels: etiquetas,
-        datasets: [
-            datosVentas2020,
-            datosVentas2021,
-            // Aquí más datos...
-        ]
-    },
-    options: {
-        scales: {
-            yAxes: [{
-                ticks: {
-                    beginAtZero: true
-                }
-            }],
-        },
-    }
-});
+// // Obtener una referencia al elemento canvas del DOM
+// const $grafica = document.querySelector("#grafica");
+// // Las etiquetas son las que van en el eje X. 
+// const etiquetas = ["Kilometros por litro"]
+// // Podemos tener varios conjuntos de datos. Comencemos con uno
+// const datosVentas2020 = {
+//     label: `${chart_carro_select.marca} ${chart_carro_select.modelo}`,
+//     data: [chart_carro_select.rendimiento, 16.5], // La data es un arreglo que debe tener la misma cantidad de valores que la cantidad de etiquetas
+//     backgroundColor: 'rgba(54, 162, 235, 0.2)',  // Color de fondo
+//     borderColor: 'rgba(54, 162, 235, 1)', // Color del borde
+//     borderWidth: 1,// Ancho del borde
+// };
 
-new Chart($grafica, {
-    type: 'bar',// Tipo de gráfica
-    data: {
-        labels: ['1.8 C.C.', '1.6 C.C.'],
-        datasets: [{
-            label: 'Honda Civic',
-            data: data,
-            backgroundColor: 'rgba(54, 162, 235, 0.2)',
-            borderColor: 'rgba(54, 162, 235, 1)',
-            borderWidth: 1,
-            parsing: {
-                yAxisKey: 'net'
-            }
-        }, {
-            label: 'Toyota Corolla',
-            data: data2,
-            backgroundColor: 'rgba(255, 159, 64, 0.2)',
-            borderColor: 'rgba(255, 159, 64, 1)',
-            borderWidth: 1,
-            parsing: {
-                yAxisKey: 'cogs'
-            }
-        }]
-    },
-    options: {
-        scales: {
-            yAxes: [{
-                ticks: {
-                    beginAtZero: true
-                }
-            }],
-        },
-    }
-});
+// const datosVentas2021 = {
+//     label: "Toyota Corolla 1.6",
+//     data: [15, 19], // La data es un arreglo que debe tener la misma cantidad de valores que la cantidad de etiquetas
+//     backgroundColor: 'rgba(255, 159, 64, 0.2)',// Color de fondo
+//     borderColor: 'rgba(255, 159, 64, 1)',// Color del borde
+//     borderWidth: 1,// Ancho del borde
+// };
 
-var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
-var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-  return new bootstrap.Tooltip(tooltipTriggerEl)
-})
+// const data = [{x: '1.8 C.C.', net: 150}];
+// const data2 = [{x: '1.6 C.C.', cogs: 55}];
+
+// new Chart($grafica, {
+//     type: 'bar',// Tipo de gráfica
+//     data: {
+//         labels: etiquetas,
+//         datasets: [
+//             datosVentas2020,
+//             datosVentas2021,
+//             // Aquí más datos...
+//         ]
+//     },
+//     options: {
+//         scales: {
+//             yAxes: [{
+//                 ticks: {
+//                     beginAtZero: true
+//                 }
+//             }],
+//         },
+//     }
+// });
+
+// new Chart($grafica, {
+//     type: 'bar',// Tipo de gráfica
+//     data: {
+//         labels: ['1.8 C.C.', '1.6 C.C.'],
+//         datasets: [{
+//             label: 'Honda Civic',
+//             data: data,
+//             backgroundColor: 'rgba(54, 162, 235, 0.2)',
+//             borderColor: 'rgba(54, 162, 235, 1)',
+//             borderWidth: 1,
+//             parsing: {
+//                 yAxisKey: 'net'
+//             }
+//         }, {
+//             label: 'Toyota Corolla',
+//             data: data2,
+//             backgroundColor: 'rgba(255, 159, 64, 0.2)',
+//             borderColor: 'rgba(255, 159, 64, 1)',
+//             borderWidth: 1,
+//             parsing: {
+//                 yAxisKey: 'cogs'
+//             }
+//         }]
+//     },
+//     options: {
+//         scales: {
+//             yAxes: [{
+//                 ticks: {
+//                     beginAtZero: true
+//                 }
+//             }],
+//         },
+//     }
+// });
+
+// var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+// var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+//   return new bootstrap.Tooltip(tooltipTriggerEl)
+// })
 
 
 

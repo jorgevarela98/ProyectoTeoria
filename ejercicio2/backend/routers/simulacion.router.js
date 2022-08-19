@@ -30,6 +30,15 @@ router.get('/simulacion/:id',(req,res)=>{
     })
 });
 
+router.get('/simulacion/:escenario',(req,res)=>{
+    simModel.obtenerSimulacionEscenario(req.params.escenario).then((resultado)=>{
+        res.send(resultado)
+    }).catch((error)=>{
+        res.status(500).send(error);
+    }).finally(()=>{
+        res.status(200);
+    })
+});
 
 
 module.exports={router};
