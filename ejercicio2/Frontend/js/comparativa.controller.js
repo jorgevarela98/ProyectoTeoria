@@ -178,7 +178,7 @@ const config = {
         scales: {
             yAxis: {
                 display:true,
-                max: 8,
+                max: 12,
                 beginAtZero: true,
                 ticks: {
                     steps:1,
